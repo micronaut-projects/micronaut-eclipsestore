@@ -19,6 +19,6 @@ class CustomerControllerTest extends BaseCustomerControllerTest {
     @ParameterizedTest
     @MethodSource("provideCustomerRepositoryImplementations")
     void testCrud(String customerRepositoryImplementation) throws Exception {
-        super.verifyCrudWithEclipseStore(customerRepositoryImplementation);
+        verifyCrudWithEclipseStore(customerRepositoryImplementation);
     }
 }
