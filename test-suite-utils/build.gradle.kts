@@ -7,7 +7,7 @@ plugins {
 dependencies {
     implementation(libs.managed.eclipsestore.aws.s3)
     implementation(platform(mnAws.micronaut.aws.bom))
-    implementation("software.amazon.awssdk:s3")
+    implementation(libs.awssdk.s3)
     implementation(libs.testcontainers)
 }
 

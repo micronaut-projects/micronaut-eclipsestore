@@ -44,4 +44,6 @@ jupiter-api = { module = 'org.junit.jupiter:junit-jupiter-api' }
 junit-jupiter-engine = { module = 'org.junit.jupiter:junit-jupiter-engine' }
 kotlin-stdlib = { module = 'org.jetbrains.kotlin:kotlin-stdlib-jdk8', version.ref = 'kotlin' }
 
+awssdk-s3 = { module = 'software.amazon.awssdk:s3' }
+awssdk-dynamodb = { module = 'software.amazon.awssdk:dynamodb' }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }

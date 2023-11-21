@@ -9,10 +9,10 @@ dependencies {
     compileOnly(mnMicrometer.micronaut.micrometer.core)
     compileOnly(projects.micronautEclipsestoreAnnotations)
     implementation(platform(mnAws.micronaut.aws.bom))
-    compileOnly("software.amazon.awssdk:s3")
+    compileOnly(libs.awssdk.s3)
     compileOnly(libs.managed.eclipsestore.aws.s3)
     compileOnly(libs.managed.eclipsestore.aws.dynamodb)
-    compileOnly("software.amazon.awssdk:dynamodb")
+    compileOnly(libs.awssdk.dynamodb)
     compileOnly(libs.managed.eclipsestore.sql)
     compileOnly(mnAws.micronaut.aws.sdk.v2)
     compileOnly(mn.micronaut.management)
@@ -38,7 +38,7 @@ dependencies {
 
     // S3 connector tests
     testImplementation(libs.managed.eclipsestore.aws.s3)
-    testImplementation("software.amazon.awssdk:s3")
+    testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
 
     // Postgres connector tests
@@ -48,7 +48,7 @@ dependencies {
 
     // DynamoDB tests
     testImplementation(libs.managed.eclipsestore.aws.dynamodb)
-    testImplementation("software.amazon.awssdk:dynamodb")
+    testImplementation(libs.awssdk.dynamodb)
 
     testRuntimeOnly(mnLogging.logback.classic)
 }

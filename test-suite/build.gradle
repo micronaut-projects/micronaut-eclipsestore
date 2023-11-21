@@ -35,11 +35,11 @@ dependencies {
     testRuntimeOnly(mnSql.postgresql)
 
     testImplementation(libs.managed.eclipsestore.aws.s3)
-    testImplementation("software.amazon.awssdk:s3")
+    testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
 
     testRuntimeOnly(libs.managed.eclipsestore.aws.dynamodb)
-    testImplementation("software.amazon.awssdk:dynamodb")
+    testImplementation(libs.awssdk.dynamodb)
 
     testImplementation(libs.testcontainers)
     testImplementation(libs.testcontainers.junit.jupiter)
