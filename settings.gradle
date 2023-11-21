@@ -15,7 +15,6 @@ include 'microstream-bom'
 include 'microstream'
 include 'microstream-annotations'
 include 'microstream-rest'
-include 'microstream-cache'
 
 include 'test-suite'
 include 'test-suite-utils'

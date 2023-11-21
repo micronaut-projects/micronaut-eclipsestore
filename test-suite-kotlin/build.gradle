@@ -27,7 +27,6 @@ dependencies {
     testImplementation(mn.micronaut.http.client)
     testImplementation(projects.micronautMicrostream)
     testImplementation(libs.jupiter.jupiter.params)
-    testImplementation(projects.micronautMicrostreamCache)
 }
 
 kotlin {
