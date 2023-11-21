@@ -43,7 +43,6 @@ abstract class BaseCustomerControllerTest {
 
     protected void verifyCrudWithEclipseStore(String customerRepositoryImplementation) throws Exception {
         // Given
-        String storageDirectory = "build/eclipsestore-" + UUID.randomUUID();
         Map<String, Object> properties = CollectionUtils.mapOf(
             "customer.repository", customerRepositoryImplementation,
             "eclipsestore.rest.enabled", StringUtils.TRUE
