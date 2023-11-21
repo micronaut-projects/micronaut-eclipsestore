@@ -4,8 +4,8 @@ import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.microstream.annotations.Store;
 import jakarta.inject.Singleton;
-import one.microstream.concurrency.XThreads;
-import one.microstream.storage.types.StorageManager;
+import org.eclipse.serializer.concurrency.XThreads;
+import org.eclipse.store.storage.types.StorageManager;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

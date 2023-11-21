@@ -2,7 +2,7 @@ package io.micronaut.microstream.docs;
 
 import io.micronaut.microstream.annotations.Store;
 import jakarta.inject.Singleton;
-import one.microstream.storage.types.StorageManager;
+import org.eclipse.store.storage.types.StorageManager;
 
 import java.util.Map;
 

@@ -11,10 +11,10 @@ plugins {
 
 rootProject.name = 'microstream-parent'
 
-include 'microstream-bom'
-include 'microstream'
-include 'microstream-annotations'
-include 'microstream-rest'
+include 'eclipsestore-bom'
+include 'eclipsestore'
+include 'eclipsestore-annotations'
+include 'eclipsestore-rest'
 
 include 'test-suite'
 include 'test-suite-utils'

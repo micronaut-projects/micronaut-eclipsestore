@@ -15,10 +15,6 @@ storageTargets:
   postgres: Postgres
   s3: S3
   dynamodb: DynamoDB
-cache:
-  title: Cache
-  cacheConfiguration: Cache Configuration
-  cacheStorage: Cache Storage
 microstreamMetrics: Metrics
 storageHealth: Health
 rest:

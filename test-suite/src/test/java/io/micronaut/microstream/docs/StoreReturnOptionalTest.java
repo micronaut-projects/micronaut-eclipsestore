@@ -2,7 +2,7 @@ package io.micronaut.microstream.docs;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.core.util.CollectionUtils;
-import one.microstream.storage.types.StorageManager;
+import org.eclipse.store.storage.types.StorageManager;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

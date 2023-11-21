@@ -6,7 +6,7 @@ import io.micronaut.microstream.annotations.Store;
 import io.micronaut.microstream.annotations.StoreRoot;
 import io.micronaut.microstream.annotations.StoringStrategy;
 import jakarta.inject.Singleton;
-import one.microstream.storage.types.StorageManager;
+import org.eclipse.store.storage.types.StorageManager;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

@@ -3,8 +3,8 @@ package io.micronaut.microstream.docs
 import io.micronaut.context.annotation.Requires
 import io.micronaut.core.annotation.NonNull
 import jakarta.inject.Singleton
-import one.microstream.concurrency.XThreads
-import one.microstream.storage.types.StorageManager
+import org.eclipse.serializer.concurrency.XThreads
+import org.eclipse.store.storage.types.StorageManager
 import java.util.UUID
 import jakarta.validation.constraints.NotBlank
 
