@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Configuration Reference | Micronaut</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    <link rel="stylesheet" href="../css/highlight/agate.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/guide.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/docs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+</head>
+<body class="body">
+    <div id="main">
+        <div id="navigation" class="no-print">
+            <div class="navTitle">
+                <span id="logo"><a href="http://micronaut.io" title="Go to Micronaut Website"><img src="../img/micronaut-logo-white.svg" alt="Micronaut"/></a></span>
+            </div>
+            <div class="navLinks">
+                <ul>
+                    <li id="table-of-content-nav-link-mobile" class="mobile">
+                        <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
+                    </li>
+                    <li>
+                        <a title="Go to documentation" href="index.html" class="button">Docs</a>
+                    </li>
+                    <li class="desktop">
+                        <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
+                    </li>
+                    <li class="mobile">
+                        <a title="Go to API documentation" href="../api/index.html" class="button">API</a>
+                    </li>
+                    <li class="desktop">
+                        <a title="Go to Configuration Reference documentation" href="configurationreference.html" class="button">Configuration Reference</a>
+                    </li>
+                    <li class="mobile">
+                        <a title="Go to Configuration Reference documentation" href="configurationreference.html" class="button">Conf</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-content">
+            <div class="project">
+                <h1>Configuration Reference</h1>
+                <p><strong>Version:</strong>1.0.0-SNAPSHOT</p>
+                <p></p>
+            </div>
+<div class="sect2">
+<h3 id="_micronaut_eclipsestore_config_properties">Micronaut Eclipsestore Config Properties</h3>
+<a id="io.micronaut.eclipsestore.conf.EclipseStoreConfigurationProperties" href="#io.micronaut.eclipsestore.conf.EclipseStoreConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/conf/EclipseStoreConfigurationProperties.html">EclipseStoreConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether EclipseStore module is enabled. Default Value: true</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.eclipsestore.postgres.DefaultPostgresStorageConfigurationProvider" href="#io.micronaut.eclipsestore.postgres.DefaultPostgresStorageConfigurationProvider">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/postgres/DefaultPostgresStorageConfigurationProvider.html">DefaultPostgresStorageConfigurationProvider</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.postgres.storage.*.root-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class of the Root Instance.
+ &lt;a href="https://docs.eclipsestore.io/manual/storage/root-instances.html"&gt;Root Instances&lt;/a&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.postgres.storage.*.datasource-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name qualifier of the defined postgres DataSource to use.
+ If unset, a datasource with the same name as the storage will be used.
+ If there is no bean with a name qualifier matching the storage name, the default datasource will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.postgres.storage.*.table-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the table to use.</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.eclipsestore.conf.DefaultEmbeddedStorageConfigurationProvider" href="#io.micronaut.eclipsestore.conf.DefaultEmbeddedStorageConfigurationProvider">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/conf/DefaultEmbeddedStorageConfigurationProvider.html">DefaultEmbeddedStorageConfigurationProvider</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.all</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.eclipse.serializer.collections.types.XGettingCollection</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.storage-directory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.storage-directory-in-user-home</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.deletion-directory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.truncation-directory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.backup-directory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.backup-directory-in-user-home</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.channel-count</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.channel-directory-prefix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-prefix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-suffix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.transaction-file-prefix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.transaction-file-suffix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.type-dictionary-file-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.rescued-file-suffix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.lock-file-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.housekeeping-interval</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.time.Duration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.housekeeping-time-budget</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.time.Duration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.entity-cache-threshold</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">long</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.entity-cache-timeout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.time.Duration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-minimum-size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.eclipse.serializer.configuration.types.ByteSize</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-maximum-size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org.eclipse.serializer.configuration.types.ByteSize</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-minimum-use-ratio</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.data-file-cleanup-head-file</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.storage.*.root-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class of the Root Instance.
+ &lt;a href="https://docs.eclipsestore.io/manual/storage/root-instances.html"&gt;Root Instances&lt;/a&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.eclipsestore.dynamodb.DefaultDynamoDBStorageConfigurationProvider" href="#io.micronaut.eclipsestore.dynamodb.DefaultDynamoDBStorageConfigurationProvider">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/dynamodb/DefaultDynamoDBStorageConfigurationProvider.html">DefaultDynamoDBStorageConfigurationProvider</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.dynamodb.storage.*.root-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class of the Root Instance.
+ &lt;a href="https://docs.eclipsestore.io/manual/storage/root-instances.html"&gt;Root Instances&lt;/a&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.dynamodb.storage.*.dynamo-db-client-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name qualifier of the defined DynamoDB Client to use.
+ If unset, a client with the same name as the storage will be used.
+ If there is no bean with a name qualifier matching the storage name, the default client will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.dynamodb.storage.*.table-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the DynamoDB table to use.</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+<a id="io.micronaut.eclipsestore.s3.DefaultS3StorageConfigurationProvider" href="#io.micronaut.eclipsestore.s3.DefaultS3StorageConfigurationProvider">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/s3/DefaultS3StorageConfigurationProvider.html">DefaultS3StorageConfigurationProvider</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.s3.storage.*.root-class</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class of the Root Instance.
+ &lt;a href="https://docs.eclipsestore.io/manual/storage/root-instances.html"&gt;Root Instances&lt;/a&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.s3.storage.*.s3-client-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name qualifier of the defined S3Client to use.
+ If unset, a client with the same name as the storage will be used.
+ If there is no bean with a name qualifier matching the storage name, the default client will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.s3.storage.*.bucket-name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the bucket to use.</p></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_eclipsestore_rest_config_properties">Micronaut Eclipsestore Rest Config Properties</h3>
+<a id="io.micronaut.eclipsestore.rest.EclipseStoreRestControllerConfigurationProperties" href="#io.micronaut.eclipsestore.rest.EclipseStoreRestControllerConfigurationProperties">&#128279;</a>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Configuration Properties for <a href="../api/io/micronaut/eclipsestore/rest/EclipseStoreRestControllerConfigurationProperties.html">EclipseStoreRestControllerConfigurationProperties</a></caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Property</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.rest.enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eclipsestore.rest.path</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after: always;"></div>
+</div>
+        </div>
+    </div>
+</body>
+</html>
