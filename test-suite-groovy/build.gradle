@@ -14,5 +14,4 @@ dependencies {
     testImplementation(mn.micronaut.http.client)
     testImplementation(projects.micronautEclipsestore)
     testRuntimeOnly(mnLogging.logback.classic)
-    testRuntimeOnly(mn.snakeyaml)
 }
