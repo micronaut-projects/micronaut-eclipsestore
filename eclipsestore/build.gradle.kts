@@ -40,6 +40,7 @@ dependencies {
     testImplementation(libs.managed.eclipsestore.aws.s3)
     testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
+    testImplementation(libs.testcontainers.minio)
 
     // Postgres connector tests
     testImplementation(libs.managed.eclipsestore.sql)

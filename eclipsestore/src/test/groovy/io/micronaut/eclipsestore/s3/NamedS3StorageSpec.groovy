@@ -8,13 +8,12 @@ import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Requires
 import io.micronaut.core.annotation.NonNull
 import io.micronaut.core.util.StringUtils
-import io.micronaut.inject.qualifiers.Qualifiers
 import io.micronaut.eclipsestore.BaseStorageSpec
 import io.micronaut.eclipsestore.testutils.MinioLocal
-import io.micronaut.test.extensions.spock.annotation.MicronautTest
-import io.micronaut.eclipsestore.testutils.MinioUtils
 import io.micronaut.eclipsestore.testutils.S3Configuration
 import io.micronaut.eclipsestore.testutils.S3ConfigurationProperties
+import io.micronaut.inject.qualifiers.Qualifiers
+import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import io.micronaut.test.support.TestPropertyProvider
 import jakarta.inject.Inject
 import jakarta.inject.Named
@@ -97,7 +96,7 @@ class NamedS3StorageSpec extends BaseStorageSpec implements TestPropertyProvider
         @Singleton
         @Named(OTHER_CLIENT_NAME)
         S3Client buildClient(S3Config s3Config) {
-            MinioUtils.s3Client(s3Config)
+            MinioLocal.s3Client(s3Config)
         }
     }
 
