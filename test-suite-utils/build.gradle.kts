@@ -5,11 +5,11 @@ plugins {
 }
 
 dependencies {
+    implementation(platform(mnTestResources.boms.testcontainers))
     implementation(libs.testcontainers.minio)
     implementation(libs.managed.eclipsestore.aws.s3)
     implementation(platform(mnAws.micronaut.aws.bom))
     implementation(libs.awssdk.s3)
-    implementation(libs.testcontainers)
 }
 
 spotless {
