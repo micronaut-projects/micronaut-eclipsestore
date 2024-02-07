@@ -24,7 +24,6 @@ dependencies {
     implementation(libs.eclipsestore.persistence.binary.jdk8)
     implementation(libs.eclipsestore.persistence.binary.jdk17)
 
-    testImplementation(libs.testcontainers)
 
     testImplementation(mnSerde.micronaut.serde.jackson)
     testImplementation(mn.reactor.test)
@@ -40,6 +39,7 @@ dependencies {
     testImplementation(libs.managed.eclipsestore.aws.s3)
     testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
+    testImplementation(platform(mnTestResources.boms.testcontainers))
     testImplementation(libs.testcontainers.minio)
 
     // Postgres connector tests

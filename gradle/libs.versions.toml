@@ -4,7 +4,6 @@ micronaut = "4.3.1"
 groovy = "4.0.17"
 kotlin = '1.9.22'
 spock = "2.3-groovy-4.0"
-testcontainers = "1.19.3"
 managed-eclipsestore='1.0.0'
 
 micronaut-aws = "4.4.0"
@@ -13,6 +12,7 @@ micronaut-micrometer = "5.3.0"
 micronaut-serde = "2.7.1"
 micronaut-sql = "5.4.1"
 micronaut-test = "4.2.0"
+micronaut-test-resources="2.3.2"
 micronaut-validation = "4.3.0"
 
 [libraries]
@@ -22,6 +22,7 @@ micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'mi
 micronaut-micrometer = { module = "io.micronaut.micrometer:micronaut-micrometer-bom", version.ref = "micronaut-micrometer" }
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 micronaut-sql = { module = "io.micronaut.sql:micronaut-sql-bom", version.ref = "micronaut-sql" }
+micronaut-test-resources = { module = "io.micronaut.testresources:micronaut-test-resources-bom", version.ref = "micronaut-test-resources" }
 micronaut-validation = { module = "io.micronaut.validation:micronaut-validation-bom", version.ref = "micronaut-validation" }
 
 managed-eclipsestore-aws-s3 = { module = 'org.eclipse.store:afs-aws-s3', version.ref = 'managed-eclipsestore' }
@@ -34,9 +35,8 @@ eclipsestore-rest-gui = { module = 'org.eclipse.store:storage-restclient-app', v
 eclipsestore-persistence-binary-jdk8 = { module = 'org.eclipse.serializer:persistence-binary-jdk8', version.ref = 'managed-eclipsestore' }
 eclipsestore-persistence-binary-jdk17 = { module = 'org.eclipse.serializer:persistence-binary-jdk17', version.ref = 'managed-eclipsestore' }
 
-testcontainers = { module = "org.testcontainers:testcontainers", version.ref = "testcontainers" }
-testcontainers-minio = { module = "org.testcontainers:minio", version.ref = "testcontainers" }
-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-minio = { module = "org.testcontainers:minio" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter" }
 jupiter-jupiter-params = { module = 'org.junit.jupiter:junit-jupiter-params' }
 jupiter-api = { module = 'org.junit.jupiter:junit-jupiter-api' }
 junit-jupiter-engine = { module = 'org.junit.jupiter:junit-jupiter-engine' }

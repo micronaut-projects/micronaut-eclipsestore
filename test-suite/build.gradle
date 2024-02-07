@@ -41,7 +41,7 @@ dependencies {
     testRuntimeOnly(libs.managed.eclipsestore.aws.dynamodb)
     testImplementation(libs.awssdk.dynamodb)
 
-    testImplementation(libs.testcontainers)
+    testImplementation(platform(mnTestResources.boms.testcontainers))
     testImplementation(libs.testcontainers.minio)
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(projects.testSuiteUtils)
