@@ -16,6 +16,7 @@ dependencies {
     testImplementation(mnSerde.micronaut.serde.jackson)
 
     testImplementation(projects.micronautEclipsestoreAnnotations)
+    testImplementation(projects.micronautEclipsestoreCache)
 
     testImplementation(libs.jupiter.api)
     testImplementation(mnTest.micronaut.test.junit5)
