@@ -4,7 +4,7 @@ dependency:micronaut-eclipsestore-cache[groupId="io.micronaut.eclipsestore"]
 
 You can then define a cache by adding the following configuration to your application:
 
-[source,yaml]
+[configuration]
 .src/main/resources/application.yml
 ----
 include::test-suite/src/test/resources/application-cache.yml[]
