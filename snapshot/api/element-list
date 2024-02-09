@@ -1,5 +1,6 @@
 io.micronaut.eclipsestore
 io.micronaut.eclipsestore.annotations
+io.micronaut.eclipsestore.cache
 io.micronaut.eclipsestore.conf
 io.micronaut.eclipsestore.dynamodb
 io.micronaut.eclipsestore.health

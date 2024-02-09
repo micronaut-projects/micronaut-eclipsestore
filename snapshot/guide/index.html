@@ -60,13 +60,15 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#storageTargets"><strong>8</strong><span>Storage Targets</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#eclipsestoreMetrics"><strong>9</strong><span>Metrics</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#cache"><strong>9</strong><span>Cache</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#storageHealth"><strong>10</strong><span>Health</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#eclipsestoreMetrics"><strong>10</strong><span>Metrics</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#rest"><strong>11</strong><span>REST API</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#storageHealth"><strong>11</strong><span>Health</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>12</strong><span>Repository</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#rest"><strong>12</strong><span>REST API</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>13</strong><span>Repository</span></a></div>
                                 
                             </div>
                         </div>
@@ -123,19 +125,25 @@
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-dynamodb"><a href="#dynamodb"><strong>8.3</strong><span>DynamoDB</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-eclipsestoreMetrics"><a href="#eclipsestoreMetrics"><strong>9</strong><span>Metrics</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-cache"><a href="#cache"><strong>9</strong><span>Cache</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-storageHealth"><a href="#storageHealth"><strong>10</strong><span>Health</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-cacheConfiguration"><a href="#cacheConfiguration"><strong>9.1</strong><span>Cache Configuration</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-rest"><a href="#rest"><strong>11</strong><span>REST API</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-cacheStorage"><a href="#cacheStorage"><strong>9.2</strong><span>Cache Storage</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-restSetup"><a href="#restSetup"><strong>11.1</strong><span>Enabling the REST API</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-eclipsestoreMetrics"><a href="#eclipsestoreMetrics"><strong>10</strong><span>Metrics</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-restConfiguration"><a href="#restConfiguration"><strong>11.2</strong><span>Configuration options</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-storageHealth"><a href="#storageHealth"><strong>11</strong><span>Health</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-restGui"><a href="#restGui"><strong>11.3</strong><span>GUI</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-rest"><a href="#rest"><strong>12</strong><span>REST API</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>12</strong><span>Repository</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-restSetup"><a href="#restSetup"><strong>12.1</strong><span>Enabling the REST API</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-restConfiguration"><a href="#restConfiguration"><strong>12.2</strong><span>Configuration options</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-restGui"><a href="#restGui"><strong>12.3</strong><span>GUI</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>13</strong><span>Repository</span></a></div>
         
         </div>
     </div>
@@ -1914,7 +1922,369 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 </table>
 </div>
 
-<h1 id="eclipsestoreMetrics"><a class="anchor" href="#eclipsestoreMetrics"></a>9 Metrics</h1>
+<h1 id="cache"><a class="anchor" href="#cache"></a>9 Cache</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/cache.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>EclipseStore can be used as a <a href="https://micronaut-projects.github.io/micronaut-cache/latest/guide/#cache-abstraction">cache abstraction</a> layer.</p>
+</div>
+
+<h2 id="cacheConfiguration"><a class="anchor" href="#cacheConfiguration"></a>9.1 Cache Configuration</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/cache/cacheConfiguration.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To use the EclipseStore cache abstraction, you must declare a dependency on</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.eclipsestore:micronaut-eclipsestore-cache")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.eclipsestore&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-eclipsestore-cache&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div></p>
+</div>
+<div class="paragraph">
+<p>You can then define a cache by adding the following configuration to your application:</p>
+</div>
+<div class="openblock">
+<div class="title">src/main/resources/application.yml</div>
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.cache.counter.key-type=java.lang.String
+eclipsestore.cache.counter.value-type=java.lang.Long</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
+  cache:
+    counter: # <b class="conum">(1)</b>
+      key-type: java.lang.String
+      value-type: java.lang.Long</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore]
+  [eclipsestore.cache]
+    [eclipsestore.cache.counter]
+      key-type="java.lang.String"
+      value-type="java.lang.Long"</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  cache {
+    counter {
+      keyType = "java.lang.String"
+      valueType = "java.lang.Long"
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    cache {
+      counter {
+        key-type = "java.lang.String"
+        value-type = "java.lang.Long"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "cache": {
+      "counter": {
+        "key-type": "java.lang.String",
+        "value-type": "java.lang.Long"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define a cache named <code>counter</code> which has String keys and Long values.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This cache can then be used via the following:</p>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.eclipsestore.docs;
+
+import io.micronaut.cache.annotation.CacheConfig;
+import io.micronaut.cache.annotation.CachePut;
+import io.micronaut.cache.annotation.Cacheable;
+import jakarta.inject.Singleton;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Singleton
+@CacheConfig("counter") // <b class="conum">(1)</b>
+public class CounterService {
+
+    Map&lt;String, Long&gt; counters = new HashMap&lt;&gt;();
+
+    @Cacheable // <b class="conum">(2)</b>
+    public Long currentCount(String name) {
+        return counters.get(name);
+    }
+
+    @CachePut(parameters = {"name"}) // <b class="conum">(3)</b>
+    public Long setCount(String name, Long count) {
+        counters.put(name, count);
+        return count;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.eclipsestore.docs
+
+import io.micronaut.cache.annotation.CacheConfig
+import io.micronaut.cache.annotation.CachePut
+import io.micronaut.cache.annotation.Cacheable
+import jakarta.inject.Singleton
+
+@Singleton
+@CacheConfig("counter") // <b class="conum">(1)</b>
+class CounterService {
+
+    Map&lt;String, Long&gt; counters = [:]
+
+    @Cacheable // <b class="conum">(2)</b>
+    Long currentCount(String name) {
+        return counters.get(name)
+    }
+
+    @CachePut(parameters = ["name"]) // <b class="conum">(3)</b>
+    Long setCount(String name, Long count) {
+        counters.put(name, count)
+        count
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
+
+import io.micronaut.cache.annotation.CacheConfig
+import io.micronaut.cache.annotation.CachePut
+import io.micronaut.cache.annotation.Cacheable
+import jakarta.inject.Singleton
+import java.util.HashMap
+
+@Singleton
+@CacheConfig("counter") // <b class="conum">(1)</b>
+open class CounterService {
+
+    val counters: MutableMap&lt;String, Long&gt; = HashMap()
+
+    @Cacheable // <b class="conum">(2)</b>
+    open fun currentCount(name: String): Long? = counters[name]
+
+    @CachePut(parameters = ["name"]) // <b class="conum">(3)</b>
+    open fun setCount(name: String, count: Long): Long {
+        counters[name] = count
+        return count
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Use the <code>counter</code> cache.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The result of this call will be cached.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Setting the counter will invalidate the cache for this key.</td>
+</tr>
+</table>
+</div>
+
+<h2 id="cacheStorage"><a class="anchor" href="#cacheStorage"></a>9.2 Cache Storage</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/cache/cacheStorage.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>If caching that persists across restarts is required, you can back a EclipseStore cache with a Storage Manager.</p>
+</div>
+<div class="openblock">
+<div class="title">src/main/resources/application.yml</div>
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.storage.backing.storage-directory=${storageDirectory}
+eclipsestore.storage.backing.channel-count=4
+eclipsestore.cache.counter.key-type=java.lang.String
+eclipsestore.cache.counter.value-type=java.lang.Long
+eclipsestore.cache.counter.storage=backing</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
+  storage:
+    backing: # <b class="conum">(1)</b>
+      storage-directory: "${storageDirectory}"
+      channel-count: 4
+  cache:
+    counter: # <b class="conum">(2)</b>
+      key-type: java.lang.String
+      value-type: java.lang.Long
+      storage: backing # <b class="conum">(3)</b></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore]
+  [eclipsestore.storage]
+    [eclipsestore.storage.backing]
+      storage-directory="${storageDirectory}"
+      channel-count=4
+  [eclipsestore.cache]
+    [eclipsestore.cache.counter]
+      key-type="java.lang.String"
+      value-type="java.lang.Long"
+      storage="backing"</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  storage {
+    backing {
+      storageDirectory = "${storageDirectory}"
+      channelCount = 4
+    }
+  }
+  cache {
+    counter {
+      keyType = "java.lang.String"
+      valueType = "java.lang.Long"
+      storage = "backing"
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    storage {
+      backing {
+        storage-directory = "${storageDirectory}"
+        channel-count = 4
+      }
+    }
+    cache {
+      counter {
+        key-type = "java.lang.String"
+        value-type = "java.lang.Long"
+        storage = "backing"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "storage": {
+      "backing": {
+        "storage-directory": "${storageDirectory}",
+        "channel-count": 4
+      }
+    },
+    "cache": {
+      "counter": {
+        "key-type": "java.lang.String",
+        "value-type": "java.lang.Long",
+        "storage": "backing"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define a storage manager called <code>backing</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Define a cache called <code>counter</code> to store Strings keys and Long values</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Configure the cache to use the <code>backing</code> storage manager</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The above example will then persist across restarts.</p>
+</div>
+
+<h1 id="eclipsestoreMetrics"><a class="anchor" href="#eclipsestoreMetrics"></a>10 Metrics</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/eclipsestoreMetrics.adoc"'>
@@ -1930,7 +2300,7 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 <p>If you do not wish to collect EclipseStore metrics, you can set <code>micronaut.metrics.binders.eclipsestore.enabled</code> to <code>false</code> in <code>application.yml</code>.</p>
 </div>
 
-<h1 id="storageHealth"><a class="anchor" href="#storageHealth"></a>10 Health</h1>
+<h1 id="storageHealth"><a class="anchor" href="#storageHealth"></a>11 Health</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/storageHealth.adoc"'>
@@ -1993,7 +2363,7 @@ By default, the details visible above are only shown to authenticated users. See
 </div>
 </div>
 
-<h1 id="rest"><a class="anchor" href="#rest"></a>11 REST API</h1>
+<h1 id="rest"><a class="anchor" href="#rest"></a>12 REST API</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/rest.adoc"'>
@@ -2010,7 +2380,7 @@ When developing a EclipseStore application, it is useful to be able to inspect t
 <p>The <code>micronaut-eclipsestore-rest</code> library exposes the <a href="https://docs.eclipsestore.io/manual/storage/rest-interface/rest-api.html">EclipseStore REST API</a> from inside your Micronaut application.</p>
 </div>
 
-<h2 id="restSetup"><a class="anchor" href="#restSetup"></a>11.1 Enabling the REST API</h2>
+<h2 id="restSetup"><a class="anchor" href="#restSetup"></a>12.1 Enabling the REST API</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/rest/restSetup.adoc"'>
@@ -2054,7 +2424,7 @@ When developing a EclipseStore application, it is useful to be able to inspect t
 <p>It will output a warning each time your application is started if the REST endpoint is enabled that this should not be deployed to production.</p>
 </div>
 
-<h2 id="restConfiguration"><a class="anchor" href="#restConfiguration"></a>11.2 Configuration options</h2>
+<h2 id="restConfiguration"><a class="anchor" href="#restConfiguration"></a>12.2 Configuration options</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/rest/restConfiguration.adoc"'>
@@ -2093,7 +2463,7 @@ When multiple storage managers are defined, the URL must be suffixed by the mana
 <p>The above configuration would expose the REST API at <code>/custom-prefix</code>. (or <code>/custom-prefix/«storage-name»</code> if you have multiple storage managers defined).</p>
 </div>
 
-<h2 id="restGui"><a class="anchor" href="#restGui"></a>11.3 GUI</h2>
+<h2 id="restGui"><a class="anchor" href="#restGui"></a>12.3 GUI</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/rest/restGui.adoc"'>
@@ -2109,7 +2479,7 @@ When multiple storage managers are defined, the URL must be suffixed by the mana
 <p>Instructions on downloading and running this <a href="https://docs.eclipsestore.io/manual/storage/rest-interface/client-gui.html">can be found here</a>.</p>
 </div>
 
-<h1 id="repository"><a class="anchor" href="#repository"></a>12 Repository</h1>
+<h1 id="repository"><a class="anchor" href="#repository"></a>13 Repository</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/master/src/main/docs/guide/repository.adoc"'>
