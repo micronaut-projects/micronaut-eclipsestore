@@ -69,7 +69,7 @@ public class CacheFactory {
     public <K, V> EclipseStoreSyncCache<K, V> createCache(
         @Parameter String name,
         CacheConfiguration.Builder<K, V> cacheConfigurationBuilder,
-        @Named(TaskExecutors.IO) ExecutorService executorService
+        @Named(TaskExecutors.BLOCKING) ExecutorService executorService
     ) {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Creating cache: {}", name);
