@@ -1,6 +1,6 @@
 If caching that persists across restarts is required, you can back a EclipseStore cache with a Storage Manager.
 
-[source,yaml]
+[configuration]
 .src/main/resources/application.yml
 ----
 include::test-suite/src/test/resources/application-cachepersist.yml[]
