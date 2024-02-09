@@ -18,7 +18,7 @@
  *
  * @see <a href="https://micronaut-projects.github.io/micronaut-cache/latest/guide/">Micronaut Cache</a>
  * @author Tim Yates
- * @since 1.1.0
+ * @since 1.3.0
  */
 @Configuration
 @Requires(property = EclipseStoreCacheConfigurationProperties.PREFIX + ".enabled", notEquals = StringUtils.FALSE)
