@@ -2,3 +2,6 @@ repositories {
     mavenCentral()
 }
 
+configurations.configureEach {
+    resolutionStrategy.preferProjectModules()
+}
