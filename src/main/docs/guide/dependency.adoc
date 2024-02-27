@@ -1,7 +1,5 @@
 To start, add the following dependencies to your classpath.
 
-dependency:micronaut-eclipsestore-annotations[groupId="io.micronaut.eclipsestore",scope=annotationProcessor]
-
-dependency:micronaut-eclipsestore-annotations[groupId="io.micronaut.eclipsestore"]
+dependency:micronaut-eclipsestore-processor[groupId="io.micronaut.eclipsestore",scope=annotationProcessor]
 
 dependency:micronaut-eclipsestore[groupId="io.micronaut.eclipsestore"]
