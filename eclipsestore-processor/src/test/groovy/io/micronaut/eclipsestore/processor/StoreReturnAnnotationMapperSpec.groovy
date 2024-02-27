@@ -1,18 +1,20 @@
-package io.micronaut.eclipsestore.annotations
+package io.micronaut.eclipsestore.processor
 
 import io.micronaut.core.annotation.AnnotationValue
+import io.micronaut.eclipsestore.annotations.Store
+import io.micronaut.eclipsestore.annotations.StoreReturn
+import io.micronaut.eclipsestore.annotations.StoringStrategy
 import io.micronaut.inject.visitor.VisitorContext
 import spock.lang.Specification
 
-class StoreParamsAnnotationMapperSpec extends Specification {
+class StoreReturnAnnotationMapperSpec extends Specification {
 
-    void "StoreParams is mapped to Store"() {
+    void "StoreReturn is mapped to Store"() {
         when:
-        StoreParamsAnnotationMapper mapper = new StoreParamsAnnotationMapper()
-        def annotation = Stub(AnnotationValue<StoreParams>) {
+        StoreReturnAnnotationMapper mapper = new StoreReturnAnnotationMapper()
+        def annotation = Stub(AnnotationValue<StoreReturn>) {
             enumValue(_, StoringStrategy.class) >> Optional.of(StoringStrategy.EAGER)
             get(_, String.class) >> Optional.of("main")
-            stringValues() >> ['customers']
         }
         def visitorContext = Mock(VisitorContext)
         List<AnnotationValue<?>> result = mapper.map(annotation, visitorContext)
@@ -29,10 +31,10 @@ class StoreParamsAnnotationMapperSpec extends Specification {
         "main" == annotationValue.stringValue("name").get()
         !annotationValue.booleanValue("root").orElse(false)
         StoringStrategy.EAGER == annotationValue.enumValue("strategy", StoringStrategy.class).orElse(StoringStrategy.LAZY)
-        ["customers"] == annotationValue.stringValues("parameters")
-        !annotationValue.booleanValue("result").orElse(false)
+        !annotationValue.stringValues("params")
+        annotationValue.booleanValue("result").orElse(false)
 
         and:
-        StoreParams.class == mapper.annotationType()
+        StoreReturn.class == mapper.annotationType()
     }
 }
