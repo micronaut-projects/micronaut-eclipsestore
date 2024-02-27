@@ -1,14 +1,14 @@
 plugins {
-    id 'groovy'
-    id "io.micronaut.internal.build.eclipsestore-testsuite"
+    id("groovy")
+    id("io.micronaut.internal.build.eclipsestore-testsuite")
 }
 
 dependencies {
     testCompileOnly(mn.micronaut.inject.groovy)
+    testCompileOnly(projects.micronautEclipsestoreProcessor)
 
     testImplementation(platform(mn.micronaut.core.bom))
     testImplementation(projects.micronautEclipsestore)
-    testImplementation(projects.micronautEclipsestoreAnnotations)
     testImplementation(projects.micronautEclipsestoreCache)
     testImplementation(mnValidation.micronaut.validation)
     testImplementation(mnSerde.micronaut.serde.jackson)

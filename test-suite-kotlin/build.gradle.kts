@@ -6,12 +6,11 @@ plugins {
 
 dependencies {
     kaptTest(platform(mn.micronaut.core.bom))
-    kaptTest(projects.micronautEclipsestoreAnnotations)
+    kaptTest(projects.micronautEclipsestoreProcessor)
     kaptTest(mnSerde.micronaut.serde.processor)
     kaptTest(mn.micronaut.inject.java)
 
     testImplementation(projects.micronautEclipsestore)
-    testImplementation(projects.micronautEclipsestoreAnnotations)
     testImplementation(projects.micronautEclipsestoreCache)
 
     testImplementation(libs.kotlin.stdlib)
