@@ -52,6 +52,7 @@ final class StoreAnnotationMapperUtils {
     }
 
     @NonNull
+    @SuppressWarnings("java:S1452") // AnnotationMapper requires a wildcard generic from its map method
     public static List<AnnotationValue<?>> map(@NonNull AnnotationValue<?> annotation,
                                                @NonNull Consumer<AnnotationValueBuilder<Store>> builderConsumer) {
         AnnotationValueBuilder<Store> builder = annotationValueBuilder(annotation);
