@@ -1,12 +1,12 @@
 plugins {
-    id 'java-library'
-    id "io.micronaut.internal.build.eclipsestore-testsuite"
+    id("java-library")
+    id("io.micronaut.internal.build.eclipsestore-testsuite")
     id("io.micronaut.test-resources") version "4.2.0"
 }
 
 dependencies {
     testAnnotationProcessor(platform(mn.micronaut.core.bom))
-    testAnnotationProcessor(projects.micronautEclipsestoreAnnotations)
+    testAnnotationProcessor(projects.micronautEclipsestoreProcessor)
     testAnnotationProcessor(mn.micronaut.inject.java)
     testAnnotationProcessor(mnValidation.micronaut.validation.processor)
     testAnnotationProcessor(mnSerde.micronaut.serde.processor)
@@ -15,8 +15,9 @@ dependencies {
     testImplementation(mnValidation.micronaut.validation)
     testImplementation(mnSerde.micronaut.serde.jackson)
 
-    testImplementation(projects.micronautEclipsestoreAnnotations)
     testImplementation(projects.micronautEclipsestoreCache)
+    testImplementation(projects.micronautEclipsestore)
+    testImplementation(projects.micronautEclipsestoreRest)
 
     testImplementation(libs.jupiter.api)
     testImplementation(mnTest.micronaut.test.junit5)
@@ -27,8 +28,6 @@ dependencies {
 
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mn.micronaut.http.client)
-    testImplementation(projects.micronautEclipsestore)
-    testImplementation(projects.micronautEclipsestoreRest)
     testImplementation(libs.jupiter.jupiter.params)
 
     testImplementation(libs.managed.eclipsestore.sql)

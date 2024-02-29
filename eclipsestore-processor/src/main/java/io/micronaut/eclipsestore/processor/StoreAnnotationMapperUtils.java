@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2022 original authors
+ * Copyright 2017-2024 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.eclipsestore.annotations;
+package io.micronaut.eclipsestore.processor;
 
 import io.micronaut.core.annotation.AnnotationValue;
 import io.micronaut.core.annotation.AnnotationValueBuilder;
 import io.micronaut.core.annotation.NonNull;
+import io.micronaut.eclipsestore.annotations.Store;
+import io.micronaut.eclipsestore.annotations.StoringStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +31,12 @@ import java.util.function.Consumer;
  * @author Sergio del Amo
  * @since 1.0.0
  */
-public final class StoreAnnotationMapperUtils {
+final class StoreAnnotationMapperUtils {
 
     private static final String STRATEGY = "strategy";
     private static final String NAME = "name";
 
     private StoreAnnotationMapperUtils() {
-
     }
 
     @NonNull
@@ -51,9 +52,10 @@ public final class StoreAnnotationMapperUtils {
     }
 
     @NonNull
+    @SuppressWarnings("java:S1452") // AnnotationMapper requires a wildcard generic from its map method
     public static List<AnnotationValue<?>> map(@NonNull AnnotationValue<?> annotation,
                                                @NonNull Consumer<AnnotationValueBuilder<Store>> builderConsumer) {
-        AnnotationValueBuilder<Store> builder = StoreAnnotationMapperUtils.annotationValueBuilder(annotation);
+        AnnotationValueBuilder<Store> builder = annotationValueBuilder(annotation);
         builderConsumer.accept(builder);
         List<AnnotationValue<?>> annotationValues = new ArrayList<>(1);
         annotationValues.add(builder.build());

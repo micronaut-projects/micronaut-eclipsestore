@@ -1,0 +1,8 @@
+
+This section will document breaking changes that may happen during milestone or release candidate releases, as well as major releases eg (1.x.x -> 2.x.x).
+
+== Micronaut EclipseStore 2.0.0 breaking changes
+
+- The annotation mappers have been moved from `micronaut-eclipsestore-annotations` to a new module `micronaut-eclipsestore-processor`.
++
+You will need to replace the `micronaut-eclipsestore-annotations` annotation processor (or `compileOnly` dependency with a Groovy project) with `micronaut-eclipsestore-processor` in your project.

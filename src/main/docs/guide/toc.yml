@@ -1,6 +1,7 @@
 introduction:
   title: Introduction
 releaseHistory: Release History
+breaks: Breaking Changes
 dependency: Dependency
 configuration: Configuration
 rootInstance: Root Instance
