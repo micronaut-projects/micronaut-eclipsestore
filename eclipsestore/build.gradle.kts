@@ -2,7 +2,7 @@ import io.micronaut.testresources.buildtools.KnownModules.JDBC_POSTGRESQL
 
 plugins {
     id("io.micronaut.internal.build.eclipsestore-module")
-    id("io.micronaut.test-resources") version "4.2.0"
+    id("io.micronaut.test-resources") version "4.3.6"
 }
 
 dependencies {
