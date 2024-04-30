@@ -2,6 +2,9 @@ To start, add the following dependencies to your classpath.
 
 dependency:micronaut-eclipsestore-annotations[groupId="io.micronaut.eclipsestore",scope=annotationProcessor]
 
+NOTE: For Kotlin annotation processing, add the `micronaut-eclipsestore-annotations` dependency in https://docs.micronaut.io/4.4.3/guide/#kaptOrKsp[kapt or ksp scope]. For Groovy annotation processing, the following implementation scope is adequate.
+
 dependency:micronaut-eclipsestore-annotations[groupId="io.micronaut.eclipsestore"]
 
 dependency:micronaut-eclipsestore[groupId="io.micronaut.eclipsestore"]
+
