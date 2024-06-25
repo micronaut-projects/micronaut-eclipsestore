@@ -26,7 +26,7 @@ import java.util.Optional;
  * @author Simon Frauenschuh
  * @since 1.6.0
  */
-@EachProperty("eclipsestore.azure.storage")
+@EachProperty("eclipsestore.blob.storage")
 public class DefaultBlobStorageConfigurationProvider implements BlobStorageConfigurationProvider {
     @NonNull
     private Class<?> rootClass;
@@ -34,7 +34,7 @@ public class DefaultBlobStorageConfigurationProvider implements BlobStorageConfi
     private final String name;
 
     @Nullable
-    private String storageAccountClientName;
+    private String blobClientName;
 
     @NonNull
     private String containerName;
@@ -66,8 +66,8 @@ public class DefaultBlobStorageConfigurationProvider implements BlobStorageConfi
 
     @Override
     @NonNull
-    public Optional<String> getStorageAccountClientName() {
-        return Optional.ofNullable(storageAccountClientName);
+    public Optional<String> getBlobClientName() {
+        return Optional.ofNullable(blobClientName);
     }
 
     /**
@@ -75,10 +75,10 @@ public class DefaultBlobStorageConfigurationProvider implements BlobStorageConfi
      * If unset, a client with the same name as the storage will be used.
      * If there is no bean with a name qualifier matching the storage name, the default client will be used.
      *
-     * @param storageAccountClientName the name qualifier of the Storage Account Client to use
+     * @param blobClientName the name qualifier of the Storage Account Client to use
      */
-    public void setStorageAccountClientName(@Nullable String storageAccountClientName) {
-        this.storageAccountClientName = storageAccountClientName;
+    public void setBlobClientName(@Nullable String blobClientName) {
+        this.blobClientName = blobClientName;
     }
 
     @NonNull

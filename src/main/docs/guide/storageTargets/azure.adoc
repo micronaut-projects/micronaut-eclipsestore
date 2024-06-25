@@ -26,10 +26,10 @@ If you require to use an BlobServiceClient with a different name, this can be co
 [configuration]
 ----
 eclipsestore:
-    azure-storage-blob:
+    blob:
         storage:
             default:
-                blob-service-client-name: my-s3-client       # <1>
+                blob-client-name: my-s3-client       # <1>
                 container-name: eclipsestore
                 root-class: com.example.model.Root
 ----

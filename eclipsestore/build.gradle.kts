@@ -53,6 +53,10 @@ dependencies {
     testImplementation(libs.managed.eclipsestore.aws.dynamodb)
     testImplementation(libs.awssdk.dynamodb)
 
+    // Azure connector tests
+    testImplementation(libs.azuresdk.blob)
+    testImplementation(libs.managed.eclipsestore.azure.storage)
+
     testRuntimeOnly(mnLogging.logback.classic)
 }
 

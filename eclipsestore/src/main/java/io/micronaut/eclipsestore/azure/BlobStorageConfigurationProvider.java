@@ -34,7 +34,7 @@ public interface BlobStorageConfigurationProvider extends RootClassConfiguration
      * @return Returns the name qualifier of the Azure Storage Container to use.
      */
     @NonNull
-    Optional<String> getStorageAccountClientName();
+    Optional<String> getBlobClientName();
 
     /**
      *

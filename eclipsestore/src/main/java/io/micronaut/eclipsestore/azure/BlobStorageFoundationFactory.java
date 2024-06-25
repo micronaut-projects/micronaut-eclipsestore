@@ -48,7 +48,7 @@ public class BlobStorageFoundationFactory {
         BlobStorageConfigurationProvider provider,
         BeanContext ctx
     ) {
-        String storageAccountClientName = provider.getStorageAccountClientName().orElse(provider.getName());
+        String storageAccountClientName = provider.getBlobClientName().orElse(provider.getName());
 
         if (LOG.isDebugEnabled()) {
             LOG.debug("Looking for Azure Storage Account Client named '{}'", storageAccountClientName);
