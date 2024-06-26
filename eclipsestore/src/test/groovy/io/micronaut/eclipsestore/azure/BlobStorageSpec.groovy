@@ -72,16 +72,16 @@ class BlobStorageSpec extends BaseStorageSpec {
         beanContext.containsBean(EmbeddedStorageFoundation, Qualifiers.byName("foo"))
         beanContext.getBeansOfType(StorageManager).size() == 1
 
-        //when:
-        //customerRepository.updateName("foo")
+        when:
+        customerRepository.updateName("foo")
 
-        //then:
-        //customerRepository.name() == "foo"
+        then:
+        customerRepository.name() == "foo"
 
-        //when:
-        //beanContext.getBean(CustomerRepository)
+        when:
+        beanContext.getBean(CustomerRepository)
 
-        //then:
-        //noExceptionThrown()
+        then:
+        noExceptionThrown()
     }
 }

@@ -20,9 +20,9 @@
  * @author Simon Frauenschuh
  */
 @Requires(classes = AzureStorageConnector.class)
-@Requires(beans = BlobClient.class)
+@Requires(beans = BlobServiceClient.class)
 package io.micronaut.eclipsestore.azure;
 
+import com.azure.storage.blob.BlobServiceClient;
 import io.micronaut.context.annotation.Requires;
 import org.eclipse.store.afs.azure.storage.types.AzureStorageConnector;
-import com.azure.storage.blob.BlobClient;
