@@ -19,6 +19,8 @@ dependencies {
     compileOnly(mnAws.micronaut.aws.sdk.v2)
     compileOnly(mn.micronaut.management)
     compileOnly(mnSql.micronaut.jdbc)
+    compileOnly(libs.firestore.sdk)
+    compileOnly(libs.managed.eclipsestore.google.firestore)
 
     api(libs.managed.eclipsestore.storage.embedded.configuration)
 
@@ -56,6 +58,10 @@ dependencies {
     // Azure connector tests
     testImplementation(libs.azuresdk.blob)
     testImplementation(libs.managed.eclipsestore.azure.storage)
+
+    // Firestore connector tests
+    testImplementation(libs.firestore.sdk)
+    testImplementation(libs.managed.eclipsestore.google.firestore)
 
     testRuntimeOnly(mnLogging.logback.classic)
 }
