@@ -63,6 +63,10 @@ dependencies {
     testImplementation(libs.azuresdk.blob)
     testImplementation(libs.managed.eclipsestore.azure.storage)
 
+    // Firebase connector tests
+    testImplementation(libs.firestore.sdk)
+    testImplementation(libs.managed.eclipsestore.google.firestore)
+
     testRuntimeOnly(mnLogging.logback.classic)
 }
 
