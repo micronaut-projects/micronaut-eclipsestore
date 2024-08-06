@@ -7,6 +7,7 @@ spock = "2.3-groovy-4.0"
 managed-eclipsestore='1.4.0'
 azure-blob = '12.26.1'
 firestore = '3.21.5'
+azure-blob = '12.26.1'
 
 micronaut-aws = "4.6.0"
 micronaut-cache = "4.3.0"
