@@ -1,6 +1,5 @@
 package io.micronaut.eclipsestore.azure
 
-import com.azure.core.credential.AzureNamedKeyCredential
 import com.azure.storage.blob.BlobServiceClient
 import com.azure.storage.blob.BlobServiceClientBuilder
 import io.micronaut.context.BeanContext
