@@ -125,6 +125,8 @@
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-dynamodb"><a href="#dynamodb"><strong>8.3</strong><span>DynamoDB</span></a></div>
         
+        <div class="toc-item" style="margin-left:10px" id="toc-item-blob"><a href="#blob"><strong>8.4</strong><span>Blob</span></a></div>
+        
         <div class="toc-item" style="margin-left:0px" id="toc-item-cache"><a href="#cache"><strong>9</strong><span>Cache</span></a></div>
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-cacheConfiguration"><a href="#cacheConfiguration"><strong>9.1</strong><span>Cache Configuration</span></a></div>
@@ -1918,6 +1920,230 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
 <td>The name of the <code>DynamoDbClient</code> bean to use</td>
+</tr>
+</table>
+</div>
+
+<h2 id="blob"><a class="anchor" href="#blob"></a>8.4 Blob</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-eclipsestore/edit/1.6.x/src/main/docs/guide/storageTargets/blob.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>Configuration of an <a href="https://docs.eclipsestore.io/manual/storage/storage-targets/blob-stores/azure-storage.html" class="bare">https://docs.eclipsestore.io/manual/storage/storage-targets/blob-stores/azure-storage.html</a> requires a bean of type <code>BlobServiceClient</code> and configuration.</p>
+</div>
+<div class="paragraph">
+<p>To get started, add the following dependencies:</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">runtimeOnly(<span class="hljs-string">"com.azure:azure-storage-blob")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;com.azure&lt;/groupId&gt;
+    &lt;artifactId&gt;azure-storage-blob&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div></p>
+</div>
+<div class="paragraph">
+<p>The configuration can then be defined as follows:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.blob.storage.default.container-name=eclipsestore
+eclipsestore.blob.storage.default.root-class=com.example.model.Root</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
+    blob:
+        storage:
+            default:                               # <b class="conum">(1)</b>
+                container-name: eclipsestore          # <b class="conum">(2)</b>
+                root-class: com.example.model.Root # <b class="conum">(3)</b></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore]
+  [eclipsestore.blob]
+    [eclipsestore.blob.storage]
+      [eclipsestore.blob.storage.default]
+        container-name="eclipsestore"
+        root-class="com.example.model.Root"</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  blob {
+    storage {
+      'default' {
+        containerName = "eclipsestore"
+        rootClass = "com.example.model.Root"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    blob {
+      storage {
+        default {
+          container-name = "eclipsestore"
+          root-class = "com.example.model.Root"
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "blob": {
+      "storage": {
+        "default": {
+          "container-name": "eclipsestore",
+          "root-class": "com.example.model.Root"
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The name for the created Storage Manager</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The name of the Azure container to use for storage</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The root class of the object graph to store</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The storage manager will first attempt to look up an BlobServiceClient with the same name as the Storage Manager, and if this is not found, it will attempt to look up an un-named BlobServiceClient bean.</p>
+</div>
+<div class="paragraph">
+<p>If you require to use an BlobServiceClient with a different name, this can be configured via the <code>blob-service-client-name</code> property as below.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.blob.storage.default.blob-client-name=my-s3-client
+eclipsestore.blob.storage.default.container-name=eclipsestore
+eclipsestore.blob.storage.default.root-class=com.example.model.Root</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
+    blob:
+        storage:
+            default:
+                blob-client-name: my-s3-client       # <b class="conum">(1)</b>
+                container-name: eclipsestore
+                root-class: com.example.model.Root</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore]
+  [eclipsestore.blob]
+    [eclipsestore.blob.storage]
+      [eclipsestore.blob.storage.default]
+        blob-client-name="my-s3-client"
+        container-name="eclipsestore"
+        root-class="com.example.model.Root"</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  blob {
+    storage {
+      'default' {
+        blobClientName = "my-s3-client"
+        containerName = "eclipsestore"
+        rootClass = "com.example.model.Root"
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    blob {
+      storage {
+        default {
+          blob-client-name = "my-s3-client"
+          container-name = "eclipsestore"
+          root-class = "com.example.model.Root"
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "blob": {
+      "storage": {
+        "default": {
+          "blob-client-name": "my-s3-client",
+          "container-name": "eclipsestore",
+          "root-class": "com.example.model.Root"
+        }
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The name of the BlobServiceClient bean to use</td>
 </tr>
 </table>
 </div>
