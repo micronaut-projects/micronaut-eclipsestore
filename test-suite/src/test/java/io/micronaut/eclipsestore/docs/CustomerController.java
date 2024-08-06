@@ -15,11 +15,14 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Status;
 import io.micronaut.http.uri.UriBuilder;
 
+import io.micronaut.scheduling.TaskExecutors;
+import io.micronaut.scheduling.annotation.ExecuteOn;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.util.Optional;
 
 @Controller("/customer")
+@ExecuteOn(TaskExecutors.BLOCKING)
 class CustomerController {
 
     private final CustomerRepository repository;
