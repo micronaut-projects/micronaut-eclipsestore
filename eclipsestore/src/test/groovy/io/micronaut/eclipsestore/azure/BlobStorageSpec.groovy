@@ -9,7 +9,6 @@ import io.micronaut.context.annotation.Replaces
 import io.micronaut.core.util.StringUtils
 import io.micronaut.eclipsestore.BaseStorageSpec
 import io.micronaut.eclipsestore.testutils.AzureBlobLocal
-import io.micronaut.eclipsestore.testutils.MinioLocal
 import io.micronaut.inject.qualifiers.Qualifiers
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import jakarta.inject.Inject
