@@ -16,7 +16,6 @@ import jakarta.inject.Singleton
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageFoundation
 import org.eclipse.store.storage.types.StorageManager
 import org.testcontainers.DockerClientFactory
-import software.amazon.awssdk.services.s3.S3Client
 import spock.lang.AutoCleanup
 import spock.lang.Requires
 import spock.lang.Shared
