@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Testcontainers
-public class BlobCustomerControllerTest extends BaseCustomerControllerTest {
+class BlobCustomerControllerTest extends BaseCustomerControllerTest {
     private static final String CONTAINER_NAME = "devstoreaccount1";
 
     static AzureBlobLocal azureBlobLocal = new AzureBlobLocal();
