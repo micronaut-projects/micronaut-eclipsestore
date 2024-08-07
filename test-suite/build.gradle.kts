@@ -1,7 +1,7 @@
 plugins {
     id("java-library")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
-    id("io.micronaut.test-resources") version "4.3.6"
+    id("io.micronaut.test-resources") version "4.4.0"
 }
 
 dependencies {
@@ -40,6 +40,10 @@ dependencies {
 
     testRuntimeOnly(libs.managed.eclipsestore.aws.dynamodb)
     testImplementation(libs.awssdk.dynamodb)
+
+    // Azure connector tests
+    testImplementation(libs.azuresdk.blob)
+    testImplementation(libs.managed.eclipsestore.azure.storage)
 
     testImplementation(platform(mnTestResources.boms.testcontainers))
     testImplementation(libs.testcontainers.minio)

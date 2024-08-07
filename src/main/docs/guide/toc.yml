@@ -15,6 +15,7 @@ storageTargets:
   postgres: Postgres
   s3: S3
   dynamodb: DynamoDB
+  blob: Blob
 cache:
   title: Cache
   cacheConfiguration: Cache Configuration

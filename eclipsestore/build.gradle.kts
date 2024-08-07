@@ -2,7 +2,7 @@ import io.micronaut.testresources.buildtools.KnownModules.JDBC_POSTGRESQL
 
 plugins {
     id("io.micronaut.internal.build.eclipsestore-module")
-    id("io.micronaut.test-resources") version "4.3.6"
+    id("io.micronaut.test-resources") version "4.4.0"
 }
 
 dependencies {
@@ -13,6 +13,8 @@ dependencies {
     compileOnly(libs.managed.eclipsestore.aws.s3)
     compileOnly(libs.managed.eclipsestore.aws.dynamodb)
     compileOnly(libs.awssdk.dynamodb)
+    compileOnly(libs.azuresdk.blob)
+    compileOnly(libs.managed.eclipsestore.azure.storage)
     compileOnly(libs.managed.eclipsestore.sql)
     compileOnly(mnAws.micronaut.aws.sdk.v2)
     compileOnly(mn.micronaut.management)
@@ -50,6 +52,10 @@ dependencies {
     // DynamoDB tests
     testImplementation(libs.managed.eclipsestore.aws.dynamodb)
     testImplementation(libs.awssdk.dynamodb)
+
+    // Azure connector tests
+    testImplementation(libs.azuresdk.blob)
+    testImplementation(libs.managed.eclipsestore.azure.storage)
 
     testRuntimeOnly(mnLogging.logback.classic)
 }
