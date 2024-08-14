@@ -5,10 +5,9 @@ groovy = "4.0.17"
 kotlin = '1.9.24'
 spock = "2.3-groovy-4.0"
 managed-eclipsestore='1.4.0'
-azure-blob = '12.27.0'
-
 micronaut-aws = "4.6.0"
 micronaut-cache = "4.3.0"
+micronaut-azure = "5.5.1"
 micronaut-logging = "1.3.0"
 micronaut-micrometer = "5.7.1"
 micronaut-serde = "2.10.2"
@@ -18,6 +17,7 @@ micronaut-test-resources="2.5.2"
 micronaut-validation = "4.6.1"
 
 [libraries]
+micronaut-azure = { module = "io.micronaut.azure:micronaut-azure-bom", version.ref = "micronaut-azure" }
 micronaut-aws = { module = "io.micronaut.aws:micronaut-aws-bom", version.ref = "micronaut-aws" }
 micronaut-cache = { module = "io.micronaut.cache:micronaut-cache-bom", version.ref = "micronaut-cache" }
 # Required to get dependabot updates for micronaut-core
@@ -48,7 +48,7 @@ jupiter-api = { module = 'org.junit.jupiter:junit-jupiter-api' }
 junit-jupiter-engine = { module = 'org.junit.jupiter:junit-jupiter-engine' }
 kotlin-stdlib = { module = 'org.jetbrains.kotlin:kotlin-stdlib-jdk8', version.ref = 'kotlin' }
 
-azuresdk-blob = { module = 'com.azure:azure-storage-blob', version.ref = "azure-blob"}
+azuresdk-blob = { module = 'com.azure:azure-storage-blob'}
 awssdk-s3 = { module = 'software.amazon.awssdk:s3' }
 awssdk-dynamodb = { module = 'software.amazon.awssdk:dynamodb' }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
