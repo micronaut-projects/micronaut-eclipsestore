@@ -43,6 +43,7 @@ dependencies {
     testImplementation(libs.awssdk.dynamodb)
 
     // Azure connector tests
+    implementation(platform(mnAzure.micronaut.azure.bom))
     testImplementation(libs.azuresdk.blob)
     testImplementation(libs.managed.eclipsestore.azure.storage)
 
