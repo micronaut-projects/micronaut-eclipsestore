@@ -13,6 +13,7 @@ dependencies {
     compileOnly(libs.managed.eclipsestore.aws.s3)
     compileOnly(libs.managed.eclipsestore.aws.dynamodb)
     compileOnly(libs.awssdk.dynamodb)
+    implementation(platform(mnAzure.micronaut.azure.bom))
     compileOnly(libs.azuresdk.blob)
     compileOnly(libs.managed.eclipsestore.azure.storage)
     compileOnly(libs.managed.eclipsestore.sql)
