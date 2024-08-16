@@ -1,0 +1,13 @@
+io.micronaut.eclipsestore
+io.micronaut.eclipsestore.annotations
+io.micronaut.eclipsestore.azure
+io.micronaut.eclipsestore.cache
+io.micronaut.eclipsestore.conf
+io.micronaut.eclipsestore.dynamodb
+io.micronaut.eclipsestore.health
+io.micronaut.eclipsestore.interceptors
+io.micronaut.eclipsestore.metrics
+io.micronaut.eclipsestore.postgres
+io.micronaut.eclipsestore.rest
+io.micronaut.eclipsestore.s3
+io.micronaut.eclipsestore.testutils
