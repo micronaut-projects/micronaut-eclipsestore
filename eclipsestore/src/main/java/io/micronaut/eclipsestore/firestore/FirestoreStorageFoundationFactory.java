@@ -67,7 +67,7 @@ public class FirestoreStorageFoundationFactory {
             GoogleCloudFirestoreConnector.Caching(firestore)
         );
 
-        return EmbeddedStorage.Foundation(fileSystem.ensureDirectoryPath(provider.getBucketName()));
+        return EmbeddedStorage.Foundation(fileSystem.ensureDirectoryPath(provider.getLogicalDirectory()));
     }
 
     private Firestore defaultClient(BeanContext ctx, String firestoreClientName) {

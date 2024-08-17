@@ -38,8 +38,8 @@ public interface FirestoreStorageConfigurationProvider extends RootClassConfigur
 
     /**
      *
-     * @return Returns the name of the bucket to use.
+     * @return Returns the name of the logical firestore directory to use.
      */
     @NonNull
-    String getBucketName();
+    String getLogicalDirectory();
 }

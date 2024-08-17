@@ -14,11 +14,11 @@ eclipsestore:
     firestore:
         storage:
             default:                               # <1>
-                bucket-name: eclipsestore          # <2>
+                logical-directory: eclipsestore          # <2>
                 root-class: com.example.model.Root # <3>
 ----
 <1> The name for the created Storage Manager
-<2> The name of the Firestore bucket to use for storage
+<2> The name that is used internally by eclipsestore to differentiate between multiple eclipse-store instances in the same Firebase db
 <3> The root class of the object graph to store
 
 The storage manager will first attempt to look up a Firestore (Client) with the same name as the Storage Manager, and if this is not found, it will attempt to look up an un-named Firestore bean.
@@ -32,7 +32,7 @@ eclipsestore:
         storage:
             default:
                 firestore-client-name: my-firestore-client       # <1>
-                bucket-name: eclipsestore
+                logical-directory: eclipsestore
                 root-class: com.example.model.Root
 ----
 <1> The name of the Firestore (Client) bean to use

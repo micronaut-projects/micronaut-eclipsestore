@@ -23,8 +23,8 @@ import io.micronaut.core.annotation.Nullable;
 import java.util.Optional;
 
 /**
- * @author Tim Yates
- * @since 2.0.0
+ * @author Simon Frauenschuh
+ * @since 1.7.0
  */
 @EachProperty("eclipsestore.firestore.storage")
 public class DefaultFirestoreStorageConfigurationProvider implements FirestoreStorageConfigurationProvider {
@@ -38,7 +38,7 @@ public class DefaultFirestoreStorageConfigurationProvider implements FirestoreSt
     private String firestoreClientName;
 
     @NonNull
-    private String bucketName;
+    private String logicalDirectory;
 
     public DefaultFirestoreStorageConfigurationProvider(@Parameter String name) {
         this.name = name;
@@ -72,8 +72,8 @@ public class DefaultFirestoreStorageConfigurationProvider implements FirestoreSt
     }
 
     /**
-     * The name qualifier of the defined S3Client to use.
-     * If unset, a client with the same name as the storage will be used.
+     * The name qualifier of the defined Firestore to use.
+     * If unset, a Firestore with the same name as the storage will be used.
      * If there is no bean with a name qualifier matching the storage name, the default client will be used.
      *
      * @param firestoreClientName the name qualifier of the S3Client to use
@@ -83,15 +83,14 @@ public class DefaultFirestoreStorageConfigurationProvider implements FirestoreSt
     }
 
     @NonNull
-    @Override
-    public String getBucketName() {
-        return bucketName;
+    public String getLogicalDirectory() {
+        return logicalDirectory;
     }
 
     /**
-     * @param bucketName Name of the bucket to use.
+     * @param logicalDirectory Name of (logical) Firestore directory.
      */
-    public void setBucketName(@NonNull String bucketName) {
-        this.bucketName = bucketName;
+    public void setLogicalDirectory(@NonNull String logicalDirectory) {
+        this.logicalDirectory = logicalDirectory;
     }
 }
