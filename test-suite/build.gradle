@@ -39,6 +39,9 @@ dependencies {
     testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
 
+    testImplementation(libs.firestore.sdk)
+    testImplementation(libs.managed.eclipsestore.google.firestore)
+
     testRuntimeOnly(libs.managed.eclipsestore.aws.dynamodb)
     testImplementation(libs.awssdk.dynamodb)
 
