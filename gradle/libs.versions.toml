@@ -14,7 +14,7 @@ micronaut-serde = "2.11.0"
 micronaut-sql = "5.7.0"
 micronaut-test = "4.4.0"
 micronaut-test-resources="2.5.2"
-micronaut-validation = "4.6.1"
+micronaut-validation = "4.8.0"
 
 [libraries]
 micronaut-azure = { module = "io.micronaut.azure:micronaut-azure-bom", version.ref = "micronaut-azure" }
