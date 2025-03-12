@@ -15,7 +15,7 @@ public class AzureBlobLocal {
         portBindings.add("10000:10000");
         portBindings.add("10001:10001");
         portBindings.add("10002:10002");
-        blobLocal = new GenericContainer(DockerImageName.parse("mcr.microsoft.com/azure-storage/azurite"));
+        blobLocal = new GenericContainer(DockerImageName.parse("mcr.microsoft.com/azure-storage/azurite:3.34.0"));
         blobLocal.setPortBindings(portBindings);
         blobLocal.start();
     }
