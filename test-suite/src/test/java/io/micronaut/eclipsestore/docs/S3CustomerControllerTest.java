@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.micronaut.eclipsestore.testutils.MinioLocal;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,6 +14,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Testcontainers
+@Disabled("Missing required header for this request: Content-Md5. https://github.com/minio/minio/issues/20845")
 class S3CustomerControllerTest extends BaseCustomerControllerTest {
 
     private static final String BUCKET_NAME = "eclipsestorecontroller";
