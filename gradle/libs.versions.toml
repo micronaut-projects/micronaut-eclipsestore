@@ -15,7 +15,6 @@ micronaut-sql = "6.1.1"
 micronaut-test = "4.7.0"
 micronaut-test-resources = "2.8.0"
 micronaut-validation = "4.9.0"
-sonatype-scan = "3.1.1"
 
 [libraries]
 micronaut-azure = { module = "io.micronaut.azure:micronaut-azure-bom", version.ref = "micronaut-azure" }
@@ -53,4 +52,3 @@ azuresdk-blob = { module = 'com.azure:azure-storage-blob'}
 awssdk-s3 = { module = 'software.amazon.awssdk:s3' }
 awssdk-dynamodb = { module = 'software.amazon.awssdk:dynamodb' }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-sonatype-scan = { module = "org.sonatype.gradle.plugins:scan-gradle-plugin", version.ref = "sonatype-scan" }
