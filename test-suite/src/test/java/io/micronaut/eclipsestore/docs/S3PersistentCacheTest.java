@@ -4,6 +4,7 @@ import io.micronaut.context.ApplicationContext;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.eclipsestore.testutils.MinioLocal;
 import io.micronaut.runtime.server.EmbeddedServer;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.testcontainers.DockerClientFactory;
@@ -27,6 +28,7 @@ class S3PersistentCacheTest {
         return DockerClientFactory.instance().isDockerAvailable();
     }
 
+    @Disabled("Missing required header for this request: Content-Md5. https://github.com/minio/minio/issues/20845")
     @EnabledIf("dockerAvailable")
     @Test
     void cachePersistsOverRestarts() {

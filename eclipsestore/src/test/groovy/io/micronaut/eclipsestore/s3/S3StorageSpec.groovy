@@ -23,6 +23,7 @@ import org.eclipse.store.storage.types.StorageManager
 import org.testcontainers.DockerClientFactory
 import software.amazon.awssdk.services.s3.S3Client
 import spock.lang.AutoCleanup
+import spock.lang.Ignore
 import spock.lang.Shared
 
 @spock.lang.Requires({ DockerClientFactory.instance().isDockerAvailable() })
@@ -33,6 +34,7 @@ import spock.lang.Shared
 @Property(name = "micronaut.metrics.enabled", value = StringUtils.FALSE)
 @Property(name = "spec.type", value = "storage")
 @Property(name = "spec.name", value = "S3StorageSpec")
+@Ignore("Missing required header for this request: Content-Md5. https://github.com/minio/minio/issues/20845")
 class S3StorageSpec extends BaseStorageSpec implements TestPropertyProvider {
 
     static final String BUCKET_NAME = "eclipsestorefoo"

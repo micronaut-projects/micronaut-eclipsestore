@@ -1,7 +1,7 @@
 plugins {
-    id("java-library")
-    id("io.micronaut.internal.build.eclipsestore-testsuite")
-    id("io.micronaut.test-resources") version "4.4.4"
+    id 'java-library'
+    id "io.micronaut.internal.build.eclipsestore-testsuite"
+    id("io.micronaut.test-resources") version "4.5.5"
 }
 
 dependencies {
@@ -18,6 +18,7 @@ dependencies {
     testImplementation(projects.micronautEclipsestoreCache)
     testImplementation(projects.micronautEclipsestore)
     testImplementation(projects.micronautEclipsestoreRest)
+
 
     testImplementation(libs.jupiter.api)
     testImplementation(mnTest.micronaut.test.junit5)
