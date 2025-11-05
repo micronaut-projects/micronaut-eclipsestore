@@ -1,5 +1,6 @@
 plugins {
     id("groovy")
+    id("io.micronaut.build.internal.java-base")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
 }
 

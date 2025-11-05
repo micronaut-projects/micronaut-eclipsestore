@@ -1,6 +1,7 @@
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.kapt")
+    id("io.micronaut.build.internal.kotlin-base")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
 }
 
@@ -27,10 +28,4 @@ dependencies {
     testRuntimeOnly(libs.junit.jupiter.engine)
     testRuntimeOnly(mn.snakeyaml)
     testRuntimeOnly(mnLogging.logback.classic)
-}
-
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
 }
