@@ -1,6 +1,7 @@
 plugins {
-    id 'java-library'
-    id "io.micronaut.internal.build.eclipsestore-testsuite"
+    id("java-library")
+    id("io.micronaut.build.internal.java-base")
+    id("io.micronaut.internal.build.eclipsestore-testsuite")
     id("io.micronaut.test-resources") version "4.5.5"
 }
 
