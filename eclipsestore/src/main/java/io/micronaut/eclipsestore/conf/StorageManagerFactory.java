@@ -63,6 +63,7 @@ public class StorageManagerFactory {
         @SuppressWarnings("resource") // We don't want to close the storage manager
         EmbeddedStorageManager storageManager = foundation
             .onConnectionFoundation(BinaryHandlersJDK8::registerJDK8TypeHandlers)
+            .onConnectionFoundation(BinaryHandlersJDK17::registerJDK17TypeHandlers)
             .createEmbeddedStorageManager()
             .start();
 
