@@ -24,6 +24,7 @@ import io.micronaut.context.exceptions.DisabledBeanException;
 import io.micronaut.core.reflect.InstantiationUtils;
 import io.micronaut.inject.qualifiers.Qualifiers;
 import jakarta.inject.Singleton;
+import org.eclipse.serializer.persistence.binary.jdk17.types.BinaryHandlersJDK17;
 import org.eclipse.serializer.persistence.binary.jdk8.types.BinaryHandlersJDK8;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageFoundation;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
