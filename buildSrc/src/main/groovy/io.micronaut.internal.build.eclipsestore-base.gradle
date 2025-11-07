@@ -1,14 +1,5 @@
 repositories {
     mavenCentral()
-    // Keep aggregated group as a fallback
-    maven {
-        url = uri("https://repo.eclipse.org/content/groups/releases/")
-        mavenContent {
-            releasesOnly()
-            includeGroup("org.eclipse.store")
-            includeGroup("org.eclipse.serializer")
-        }
-    }
 }
 
 configurations.configureEach {
