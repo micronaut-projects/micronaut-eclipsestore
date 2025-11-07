@@ -1,7 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.kapt")
-    id("io.micronaut.build.internal.kotlin-base")
+    id("io.micronaut.build.internal.kotlin-kapt")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
 }
 
@@ -14,7 +12,6 @@ dependencies {
     testImplementation(projects.micronautEclipsestore)
     testImplementation(projects.micronautEclipsestoreCache)
 
-    testImplementation(libs.kotlin.stdlib)
     testImplementation(libs.jupiter.api)
     testImplementation(libs.jupiter.jupiter.params)
 
