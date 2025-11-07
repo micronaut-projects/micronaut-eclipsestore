@@ -26,6 +26,7 @@ dependencies {
 
     implementation(mn.reactor)
     implementation(libs.eclipsestore.persistence.binary.jdk8)
+    implementation(libs.eclipsestore.persistence.binary.jdk17)
 
 
     testImplementation(mnSerde.micronaut.serde.jackson)
