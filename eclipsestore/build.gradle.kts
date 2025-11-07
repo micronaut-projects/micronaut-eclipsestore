@@ -68,4 +68,3 @@ micronaut {
         additionalModules.add(JDBC_POSTGRESQL)
     }
 }
-

@@ -1,6 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.kapt")
+    id("io.micronaut.build.internal.kotlin-kapt")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
 }
 
@@ -13,7 +12,6 @@ dependencies {
     testImplementation(projects.micronautEclipsestore)
     testImplementation(projects.micronautEclipsestoreCache)
 
-    testImplementation(libs.kotlin.stdlib)
     testImplementation(libs.jupiter.api)
     testImplementation(libs.jupiter.jupiter.params)
 
@@ -27,10 +25,4 @@ dependencies {
     testRuntimeOnly(libs.junit.jupiter.engine)
     testRuntimeOnly(mn.snakeyaml)
     testRuntimeOnly(mnLogging.logback.classic)
-}
-
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
 }

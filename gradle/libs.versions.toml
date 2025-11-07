@@ -1,14 +1,9 @@
 [versions]
-micronaut-docs = "3.0.0"
 micronaut = "4.10.8"
-groovy = "4.0.27"
-kotlin = '1.9.24'
-spock = "2.3-groovy-4.0"
 managed-eclipsestore='3.0.1'
 micronaut-aws = "4.11.0"
 micronaut-cache = "5.3.0"
 micronaut-azure = "5.12.0"
-micronaut-logging = "1.6.1"
 micronaut-micrometer = "5.13.1"
 micronaut-serde = "2.15.5"
 micronaut-sql = "6.3.2"
@@ -46,9 +41,7 @@ testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter" }
 jupiter-jupiter-params = { module = 'org.junit.jupiter:junit-jupiter-params' }
 jupiter-api = { module = 'org.junit.jupiter:junit-jupiter-api' }
 junit-jupiter-engine = { module = 'org.junit.jupiter:junit-jupiter-engine' }
-kotlin-stdlib = { module = 'org.jetbrains.kotlin:kotlin-stdlib-jdk8', version.ref = 'kotlin' }
 
 azuresdk-blob = { module = 'com.azure:azure-storage-blob'}
 awssdk-s3 = { module = 'software.amazon.awssdk:s3' }
 awssdk-dynamodb = { module = 'software.amazon.awssdk:dynamodb' }
-gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
