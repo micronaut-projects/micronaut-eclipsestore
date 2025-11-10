@@ -1,6 +1,7 @@
 [versions]
 micronaut = "4.10.8"
 managed-eclipsestore='3.0.1'
+eclipsestorejdk17='2.1.3'
 micronaut-aws = "4.11.0"
 micronaut-cache = "5.3.0"
 micronaut-azure = "5.12.0"
@@ -33,7 +34,7 @@ managed-eclipsestore-storage-restservice = { module = 'org.eclipse.store:storage
 
 eclipsestore-rest-gui = { module = 'org.eclipse.store:storage-restclient-app', version.ref = 'managed-eclipsestore' }
 eclipsestore-persistence-binary-jdk8 = { module = 'org.eclipse.serializer:persistence-binary-jdk8', version.ref = 'managed-eclipsestore' }
-eclipsestore-persistence-binary-jdk17 = { module = 'org.eclipse.serializer:persistence-binary-jdk17', version.ref = 'managed-eclipsestore' }
+eclipsestore-persistence-binary-jdk17 = { module = 'org.eclipse.serializer:persistence-binary-jdk17', version.ref = 'eclipsestorejdk17' }
 
 testcontainers = { module = "org.testcontainers:testcontainers" }
 testcontainers-minio = { module = "org.testcontainers:minio" }
