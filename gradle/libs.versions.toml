@@ -33,7 +33,6 @@ managed-eclipsestore-storage-restservice = { module = 'org.eclipse.store:storage
 
 eclipsestore-rest-gui = { module = 'org.eclipse.store:storage-restclient-app', version.ref = 'managed-eclipsestore' }
 eclipsestore-persistence-binary-jdk8 = { module = 'org.eclipse.serializer:persistence-binary-jdk8', version.ref = 'managed-eclipsestore' }
-eclipsestore-persistence-binary-jdk17 = { module = 'org.eclipse.serializer:persistence-binary-jdk17', version.ref = 'managed-eclipsestore' }
 
 testcontainers = { module = "org.testcontainers:testcontainers" }
 testcontainers-minio = { module = "org.testcontainers:minio" }

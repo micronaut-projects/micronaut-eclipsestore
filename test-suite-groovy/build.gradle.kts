@@ -18,4 +18,5 @@ dependencies {
 
     testRuntimeOnly(mn.snakeyaml)
     testRuntimeOnly(mnLogging.logback.classic)
+    testRuntimeOnly(mnTest.junit.platform.suite)
 }

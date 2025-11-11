@@ -24,7 +24,6 @@ import io.micronaut.context.exceptions.DisabledBeanException;
 import io.micronaut.core.reflect.InstantiationUtils;
 import io.micronaut.inject.qualifiers.Qualifiers;
 import jakarta.inject.Singleton;
-import org.eclipse.serializer.persistence.binary.jdk17.types.BinaryHandlersJDK17;
 import org.eclipse.serializer.persistence.binary.jdk8.types.BinaryHandlersJDK8;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageFoundation;
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
@@ -63,7 +62,6 @@ public class StorageManagerFactory {
         @SuppressWarnings("resource") // We don't want to close the storage manager
         EmbeddedStorageManager storageManager = foundation
             .onConnectionFoundation(BinaryHandlersJDK8::registerJDK8TypeHandlers)
-            .onConnectionFoundation(BinaryHandlersJDK17::registerJDK17TypeHandlers)
             .createEmbeddedStorageManager()
             .start();
 
