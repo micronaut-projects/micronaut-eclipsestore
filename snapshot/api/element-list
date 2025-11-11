@@ -8,6 +8,7 @@ io.micronaut.eclipsestore.health
 io.micronaut.eclipsestore.interceptors
 io.micronaut.eclipsestore.metrics
 io.micronaut.eclipsestore.postgres
+io.micronaut.eclipsestore.processor
 io.micronaut.eclipsestore.rest
 io.micronaut.eclipsestore.s3
 io.micronaut.eclipsestore.testutils
