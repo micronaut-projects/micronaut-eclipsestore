@@ -1,8 +1,8 @@
 package io.micronaut.eclipsestore.docs
 
 import io.micronaut.context.annotation.Requires
-import io.micronaut.core.annotation.NonNull
-import io.micronaut.core.annotation.Nullable
+import org.jspecify.annotations.NonNull
+import org.jspecify.annotations.Nullable
 import io.micronaut.eclipsestore.RootProvider
 import io.micronaut.eclipsestore.annotations.StoreParams
 import io.micronaut.eclipsestore.annotations.StoreReturn

@@ -15,7 +15,7 @@
  */
 package io.micronaut.eclipsestore.rest;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.eclipse.store.storage.restadapter.types.StorageRestAdapter;
 
 import java.util.Optional;

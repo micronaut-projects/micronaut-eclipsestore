@@ -15,7 +15,7 @@
  */
 package io.micronaut.eclipsestore.conf;
 
-import io.micronaut.core.annotation.Nullable;
+import org.jspecify.annotations.Nullable;
 import io.micronaut.core.naming.Named;
 
 /**

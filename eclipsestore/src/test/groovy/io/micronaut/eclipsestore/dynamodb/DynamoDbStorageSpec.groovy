@@ -2,7 +2,7 @@ package io.micronaut.eclipsestore.dynamodb
 
 import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Property
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 import io.micronaut.core.util.StringUtils
 import io.micronaut.inject.qualifiers.Qualifiers
 import io.micronaut.eclipsestore.BaseStorageSpec

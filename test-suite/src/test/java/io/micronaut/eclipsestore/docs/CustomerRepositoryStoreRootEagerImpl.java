@@ -1,7 +1,7 @@
 package io.micronaut.eclipsestore.docs;
 
 import io.micronaut.context.annotation.Requires;
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.eclipsestore.annotations.Store;
 import io.micronaut.eclipsestore.annotations.StoreRoot;
 import io.micronaut.eclipsestore.annotations.StoringStrategy;

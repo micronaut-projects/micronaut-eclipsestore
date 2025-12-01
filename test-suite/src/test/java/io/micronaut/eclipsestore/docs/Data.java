@@ -1,6 +1,6 @@
 package io.micronaut.eclipsestore.docs;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;

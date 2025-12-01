@@ -1,6 +1,6 @@
 package io.micronaut.eclipsestore.docs;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.serde.annotation.Serdeable;
 
 import java.util.Map;

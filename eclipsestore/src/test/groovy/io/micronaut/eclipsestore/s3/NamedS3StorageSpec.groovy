@@ -6,7 +6,7 @@ import io.micronaut.context.annotation.ConfigurationProperties
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Property
 import io.micronaut.context.annotation.Requires
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 import io.micronaut.core.util.StringUtils
 import io.micronaut.eclipsestore.BaseStorageSpec
 import io.micronaut.eclipsestore.testutils.MinioLocal

@@ -15,7 +15,7 @@
  */
 package io.micronaut.eclipsestore.rest;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.serde.annotation.Serdeable;
 import org.eclipse.store.storage.restadapter.types.ViewerRootDescription;
 

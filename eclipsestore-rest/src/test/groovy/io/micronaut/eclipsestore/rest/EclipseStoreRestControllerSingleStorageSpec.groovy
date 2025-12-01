@@ -2,7 +2,7 @@ package io.micronaut.eclipsestore.rest
 
 import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Property
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.inject.qualifiers.Qualifiers

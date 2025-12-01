@@ -1,7 +1,7 @@
 package io.micronaut.eclipsestore.docs
 
 import io.micronaut.context.annotation.Requires
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 import jakarta.inject.Singleton
 import org.eclipse.serializer.concurrency.XThreads
 import org.eclipse.store.storage.types.StorageManager
