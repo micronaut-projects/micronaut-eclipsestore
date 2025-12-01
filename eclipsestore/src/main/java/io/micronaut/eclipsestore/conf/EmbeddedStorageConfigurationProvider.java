@@ -15,7 +15,7 @@
  */
 package io.micronaut.eclipsestore.conf;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.eclipse.store.storage.embedded.configuration.types.EmbeddedStorageConfigurationBuilder;
 
 /**

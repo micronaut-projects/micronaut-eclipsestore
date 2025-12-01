@@ -17,7 +17,7 @@ package io.micronaut.eclipsestore.processor;
 
 import io.micronaut.core.annotation.AnnotationValue;
 import io.micronaut.core.annotation.AnnotationValueBuilder;
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.eclipsestore.annotations.Store;
 import io.micronaut.eclipsestore.annotations.StoringStrategy;
 

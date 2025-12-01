@@ -16,7 +16,7 @@
 package io.micronaut.eclipsestore.rest;
 
 import io.micronaut.context.BeanContext;
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 import io.micronaut.inject.qualifiers.Qualifiers;
 import io.micronaut.eclipsestore.conf.RootClassConfigurationProvider;
 import jakarta.inject.Singleton;

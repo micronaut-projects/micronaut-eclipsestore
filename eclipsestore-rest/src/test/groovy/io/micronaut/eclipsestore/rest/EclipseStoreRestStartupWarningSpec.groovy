@@ -5,7 +5,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core.read.ListAppender
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 import org.slf4j.LoggerFactory
 import spock.lang.AutoCleanup
 import spock.lang.Specification
