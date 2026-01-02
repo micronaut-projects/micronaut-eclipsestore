@@ -35,7 +35,7 @@ eclipsestore-persistence-binary-jdk8 = { module = 'org.eclipse.serializer:persis
 testcontainers = { module = "org.testcontainers:testcontainers" }
 testcontainers-minio = { module = "org.testcontainers:testcontainers-minio" }
 testcontainers-postgresql = { module = "org.testcontainers:testcontainers-postgresql" }
-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:testcontainers-junit-jupiter" }
 jupiter-jupiter-params = { module = 'org.junit.jupiter:junit-jupiter-params' }
 jupiter-api = { module = 'org.junit.jupiter:junit-jupiter-api' }
 junit-jupiter-engine = { module = 'org.junit.jupiter:junit-jupiter-engine' }
