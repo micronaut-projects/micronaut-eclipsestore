@@ -1,7 +1,6 @@
 plugins {
     id("io.micronaut.build.internal.java-base")
     id("io.micronaut.internal.build.eclipsestore-testsuite")
-    id("io.micronaut.test-resources") version "4.6.1"
 }
 
 dependencies {
@@ -47,16 +46,9 @@ dependencies {
     testImplementation(libs.azuresdk.blob)
     testImplementation(libs.managed.eclipsestore.azure.storage)
 
-    testImplementation(platform(mnTestResources.boms.testcontainers))
+    testImplementation(platform(mnTest.boms.testcontainers))
     testImplementation(libs.testcontainers.minio)
     testImplementation(libs.testcontainers.junit.jupiter)
     testImplementation(projects.testSuiteUtils)
 }
 
-micronaut {
-    importMicronautPlatform.set(false)
-    testResources {
-        enabled.set(true)
-        additionalModules.add("jdbc-postgresql")
-    }
-}

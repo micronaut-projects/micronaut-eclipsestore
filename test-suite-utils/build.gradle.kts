@@ -5,7 +5,8 @@ plugins {
 }
 
 dependencies {
-    implementation(platform(mnTestResources.boms.testcontainers))
+    implementation(platform(mnTest.boms.testcontainers))
+    implementation(libs.testcontainers.postgresql)
     implementation(libs.testcontainers.minio)
     implementation(libs.managed.eclipsestore.aws.s3)
     implementation(platform(mnAws.micronaut.aws.bom))
