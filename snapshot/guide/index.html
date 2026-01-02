@@ -23,7 +23,9 @@
             document.body.className = classes.join(" ");
         }
     </script>
-
+    <style type="text/css">
+        .lang-java { display: block }; .lang-python { display: block }; .lang-kotlin { display: block }; .lang-groovy { display: block }; 
+    </style>
 </head>
 
 <body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
@@ -336,7 +338,7 @@ with <a href="https://docs.micronaut.io/latest/guide/#qualifiers">Name Bean Qual
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.eclipsestore.docs;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -353,6 +355,16 @@ public class Data {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
+
+import io.micronaut.core.annotation.Introspected
+
+@Introspected // <b class="conum">(1)</b>
+data class Data(val customers: MutableMap&lt;String, Customer&gt; = mutableMapOf())</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.eclipsestore.docs
 
 import io.micronaut.core.annotation.Introspected
@@ -363,16 +375,6 @@ class Data {
 }</code></pre>
 </div>
 </div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
-
-import io.micronaut.core.annotation.Introspected
-
-@Introspected // <b class="conum">(1)</b>
-data class Data(val customers: MutableMap&lt;String, Customer&gt; = mutableMapOf())</code></pre>
-</div>
-</div>
 <div class="paragraph">
 <p>And <code>Customer</code> is defined as:</p>
 </div>
@@ -380,8 +382,8 @@ data class Data(val customers: MutableMap&lt;String, Customer&gt; = mutableMapOf
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.eclipsestore.docs;
 
-import io.micronaut.core.annotation.NonNull;
-import io.micronaut.core.annotation.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import io.micronaut.serde.annotation.Serdeable;
 
 import jakarta.validation.constraints.NotBlank;
@@ -432,11 +434,21 @@ public class Customer {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
+
+import io.micronaut.core.annotation.Introspected
+
+@Introspected
+class Customer(val id: String, var firstName: String, var lastName: String?)</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.eclipsestore.docs
 
 import io.micronaut.core.annotation.Introspected
-import io.micronaut.core.annotation.NonNull
-import io.micronaut.core.annotation.Nullable
+import org.jspecify.annotations.NonNull
+import org.jspecify.annotations.Nullable
 
 import jakarta.validation.constraints.NotBlank
 
@@ -459,16 +471,6 @@ class Customer {
         this.lastName = lastName
     }
 }</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
-
-import io.micronaut.core.annotation.Introspected
-
-@Introspected
-class Customer(val id: String, var firstName: String, var lastName: String?)</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -568,7 +570,7 @@ They simplify storing objects in an associated Store Manager.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">package io.micronaut.eclipsestore.docs;
 
-import io.micronaut.core.annotation.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -593,9 +595,24 @@ public interface CustomerRepository {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
+
+import jakarta.validation.Valid
+import jakarta.validation.constraints.NotBlank
+
+interface CustomerRepository {
+    fun save(customerSave: @Valid CustomerSave): Customer
+    fun update(id: @NotBlank String, customerSave: @Valid CustomerSave)
+    fun findById(id: @NotBlank String): Customer?
+    fun deleteById(id: @NotBlank String)
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.eclipsestore.docs
 
-import io.micronaut.core.annotation.NonNull
+import org.jspecify.annotations.NonNull
 
 import jakarta.validation.Valid
 import jakarta.validation.constraints.NotBlank
@@ -613,21 +630,6 @@ interface CustomerRepository {
     Optional&lt;Customer&gt; findById(@NonNull @NotBlank String id)
 
     void deleteById(@NonNull @NotBlank String id)
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
-
-import jakarta.validation.Valid
-import jakarta.validation.constraints.NotBlank
-
-interface CustomerRepository {
-    fun save(customerSave: @Valid CustomerSave): Customer
-    fun update(id: @NotBlank String, customerSave: @Valid CustomerSave)
-    fun findById(id: @NotBlank String): Customer?
-    fun deleteById(id: @NotBlank String)
 }</code></pre>
 </div>
 </div>
@@ -700,6 +702,53 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Singleton
+class CustomerRepositoryImpl(private val storageManager: StorageManager) // <b class="conum">(1)</b>
+    : CustomerRepository {
+    override fun save(customerSave: CustomerSave): Customer {
+        val id = UUID.randomUUID().toString()
+        val customer = Customer(id, customerSave.firstName, customerSave.lastName)
+        XThreads.executeSynchronized { // <b class="conum">(2)</b>
+            data.customers[customer.id] = customer
+            storageManager.store(data.customers) // <b class="conum">(3)</b>
+        }
+        return customer
+    }
+
+    override fun update(id : String, customerSave: CustomerSave) {
+        XThreads.executeSynchronized { // <b class="conum">(2)</b>
+            val customer : Customer? = data.customers[id]
+            if (customer != null) {
+                with(customer) {
+                    firstName = customerSave.firstName
+                    lastName = customerSave.lastName
+                }
+                storageManager.store(customer) // <b class="conum">(3)</b>
+            }
+        }
+    }
+
+    override fun findById(id: @NotBlank String): Customer? {
+        return data.customers[id]
+    }
+
+    override fun deleteById(id: @NotBlank String) {
+        XThreads.executeSynchronized { // <b class="conum">(2)</b>
+            data.customers.remove(id)
+            storageManager.store(data.customers) // <b class="conum">(3)</b>
+        }
+    }
+
+    private val data: Data
+        get() {
+            val root = storageManager.root()
+            return if (root is Data) root else throw RuntimeException("Root is not Data")
+        }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@Singleton
 class CustomerRepositoryImpl implements CustomerRepository {
 
@@ -762,54 +811,6 @@ class CustomerRepositoryImpl implements CustomerRepository {
     private Data data() {
         (Data) storageManager.root()
     }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Singleton
-class CustomerRepositoryImpl(private val storageManager: StorageManager) // <b class="conum">(1)</b>
-    : CustomerRepository {
-    override fun save(customerSave: CustomerSave): Customer {
-        val id = UUID.randomUUID().toString()
-        val customer = Customer(id, customerSave.firstName, customerSave.lastName)
-        XThreads.executeSynchronized { // <b class="conum">(2)</b>
-            data.customers[customer.id] = customer
-            storageManager.store(data.customers) // <b class="conum">(3)</b>
-        }
-        return customer
-    }
-
-    override fun update(id : String, customerSave: CustomerSave) {
-        XThreads.executeSynchronized { // <b class="conum">(2)</b>
-            val customer : Customer? = data.customers[id]
-            if (customer != null) {
-                with(customer) {
-                    firstName = customerSave.firstName
-                    lastName = customerSave.lastName
-                }
-                storageManager.store(customer) // <b class="conum">(3)</b>
-            }
-        }
-    }
-
-    @NonNull
-    override fun findById(id: @NotBlank String): Customer? {
-        return data.customers[id]
-    }
-
-    override fun deleteById(id: @NotBlank String) {
-        XThreads.executeSynchronized { // <b class="conum">(2)</b>
-            data.customers.remove(id)
-            storageManager.store(data.customers) // <b class="conum">(3)</b>
-        }
-    }
-
-    private val data: Data
-        get() {
-            val root = storageManager.root()
-            return if (root is Data) root else throw RuntimeException("Root is not Data")
-        }
 }</code></pre>
 </div>
 </div>
@@ -910,6 +911,56 @@ public class CustomerRepositoryStoreImpl implements CustomerRepository {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Singleton
+open class CustomerRepositoryStoreImpl(private val rootProvider: RootProvider&lt;Data&gt;) // <b class="conum">(1)</b>
+    : CustomerRepository {
+    override fun save(customerSave: @Valid CustomerSave): Customer {
+        return addCustomer(rootProvider.root().customers, customerSave)
+    }
+
+    override fun update(id : @NotBlank String,
+                        customerSave: @Valid CustomerSave) {
+        updateCustomer(id, customerSave)
+    }
+
+    override fun findById(id: @NotBlank String): Customer? {
+        return rootProvider.root().customers[id]
+    }
+
+    override fun deleteById(id: @NotBlank String) {
+        removeCustomer(rootProvider.root().customers, id)
+    }
+
+    @StoreReturn // <b class="conum">(2)</b>
+    open fun updateCustomer(id: String, customerSave: CustomerSave): Customer? {
+        val c: Customer? = rootProvider.root().customers[id]
+        return if (c != null) {
+            c.firstName = customerSave.firstName
+            c.lastName = customerSave.lastName
+            c
+        } else null
+    }
+
+    @StoreParams("customers") // <b class="conum">(3)</b>
+    open fun addCustomer(customers: MutableMap&lt;String, Customer&gt;, customerSave: CustomerSave): Customer {
+        val customer = Customer(
+            UUID.randomUUID().toString(),
+            customerSave.firstName,
+            customerSave.lastName
+        )
+        customers[customer.id] = customer
+        return customer
+    }
+
+    @StoreParams("customers") // <b class="conum">(3)</b>
+    open fun removeCustomer(customers: MutableMap&lt;String, Customer&gt;, id: String) {
+        customers.remove(id)
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">@Singleton
 class CustomerRepositoryStoreImpl implements CustomerRepository {
 
@@ -970,58 +1021,6 @@ class CustomerRepositoryStoreImpl implements CustomerRepository {
     @StoreParams("customers") // <b class="conum">(3)</b>
     protected void removeCustomer(@NonNull Map&lt;String, Customer&gt; customers,
                                   @NonNull String id) {
-        customers.remove(id)
-    }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">@Singleton
-open class CustomerRepositoryStoreImpl(private val rootProvider: RootProvider&lt;Data&gt;) // <b class="conum">(1)</b>
-    : CustomerRepository {
-    override fun save(customerSave: @Valid CustomerSave): Customer {
-        return addCustomer(rootProvider.root().customers, customerSave)
-    }
-
-    override fun update(id : @NotBlank String,
-                        customerSave: @Valid CustomerSave) {
-        updateCustomer(id, customerSave)
-    }
-
-    @NonNull
-    override fun findById(id: @NotBlank String): Customer? {
-        return rootProvider.root().customers[id]
-    }
-
-    override fun deleteById(id: @NotBlank String) {
-        removeCustomer(rootProvider.root().customers, id)
-    }
-
-    @StoreReturn // <b class="conum">(2)</b>
-    @Nullable
-    open fun updateCustomer(id: String, customerSave: CustomerSave): Customer? {
-        val c: Customer? = rootProvider.root().customers[id]
-        return if (c != null) {
-            c.firstName = customerSave.firstName
-            c.lastName = customerSave.lastName
-            c
-        } else null
-    }
-
-    @StoreParams("customers") // <b class="conum">(3)</b>
-    open fun addCustomer(customers: MutableMap&lt;String, Customer&gt;, customerSave: CustomerSave): Customer {
-        val customer = Customer(
-            UUID.randomUUID().toString(),
-            customerSave.firstName,
-            customerSave.lastName
-        )
-        customers[customer.id] = customer
-        return customer
-    }
-
-    @StoreParams("customers") // <b class="conum">(3)</b>
-    open fun removeCustomer(customers: MutableMap&lt;String, Customer&gt;, id: String) {
         customers.remove(id)
     }
 }</code></pre>
@@ -2334,6 +2333,33 @@ public class CounterService {
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
+
+import io.micronaut.cache.annotation.CacheConfig
+import io.micronaut.cache.annotation.CachePut
+import io.micronaut.cache.annotation.Cacheable
+import jakarta.inject.Singleton
+import java.util.HashMap
+
+@Singleton
+@CacheConfig("counter") // <b class="conum">(1)</b>
+open class CounterService {
+
+    val counters: MutableMap&lt;String, Long&gt; = HashMap()
+
+    @Cacheable // <b class="conum">(2)</b>
+    open fun currentCount(name: String): Long? = counters[name]
+
+    @CachePut(parameters = ["name"]) // <b class="conum">(3)</b>
+    open fun setCount(name: String, count: Long): Long {
+        counters[name] = count
+        return count
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">package io.micronaut.eclipsestore.docs
 
 import io.micronaut.cache.annotation.CacheConfig
@@ -2356,33 +2382,6 @@ class CounterService {
     Long setCount(String name, Long count) {
         counters.put(name, count)
         count
-    }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">package io.micronaut.eclipsestore.docs
-
-import io.micronaut.cache.annotation.CacheConfig
-import io.micronaut.cache.annotation.CachePut
-import io.micronaut.cache.annotation.Cacheable
-import jakarta.inject.Singleton
-import java.util.HashMap
-
-@Singleton
-@CacheConfig("counter") // <b class="conum">(1)</b>
-open class CounterService {
-
-    val counters: MutableMap&lt;String, Long&gt; = HashMap()
-
-    @Cacheable // <b class="conum">(2)</b>
-    open fun currentCount(name: String): Long? = counters[name]
-
-    @CachePut(parameters = ["name"]) // <b class="conum">(3)</b>
-    open fun setCount(name: String, count: Long): Long {
-        counters[name] = count
-        return count
     }
 }</code></pre>
 </div>

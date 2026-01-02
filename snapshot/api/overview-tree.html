@@ -58,6 +58,7 @@ loadScripts(document, 'script');</script>
 <li><a href="io/micronaut/eclipsestore/conf/package-tree.html">io.micronaut.eclipsestore.conf</a>, </li>
 <li><a href="io/micronaut/eclipsestore/dynamodb/package-tree.html">io.micronaut.eclipsestore.dynamodb</a>, </li>
 <li><a href="io/micronaut/eclipsestore/health/package-tree.html">io.micronaut.eclipsestore.health</a>, </li>
+<li><a href="io/micronaut/eclipsestore/info/package-tree.html">io.micronaut.eclipsestore.info</a>, </li>
 <li><a href="io/micronaut/eclipsestore/interceptors/package-tree.html">io.micronaut.eclipsestore.interceptors</a>, </li>
 <li><a href="io/micronaut/eclipsestore/metrics/package-tree.html">io.micronaut.eclipsestore.metrics</a>, </li>
 <li><a href="io/micronaut/eclipsestore/postgres/package-tree.html">io.micronaut.eclipsestore.postgres</a>, </li>
@@ -71,6 +72,15 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" class="type-name-link external-link" title="class or interface in java.lang">Object</a>
 <ul>
+<li class="circle">io.micronaut.module.info.AbstractMicronautModuleInfo (implements io.micronaut.module.info.MicronautModuleInfo)
+<ul>
+<li class="circle">io.micronaut.eclipsestore.info.<a href="io/micronaut/eclipsestore/info/MicronautEclipsestoreAnnotationsModuleInfo.html" class="type-name-link" title="class in io.micronaut.eclipsestore.info">MicronautEclipsestoreAnnotationsModuleInfo</a></li>
+<li class="circle">io.micronaut.eclipsestore.info.<a href="io/micronaut/eclipsestore/info/MicronautEclipsestoreCacheModuleInfo.html" class="type-name-link" title="class in io.micronaut.eclipsestore.info">MicronautEclipsestoreCacheModuleInfo</a></li>
+<li class="circle">io.micronaut.eclipsestore.info.<a href="io/micronaut/eclipsestore/info/MicronautEclipsestoreModuleInfo.html" class="type-name-link" title="class in io.micronaut.eclipsestore.info">MicronautEclipsestoreModuleInfo</a></li>
+<li class="circle">io.micronaut.eclipsestore.info.<a href="io/micronaut/eclipsestore/info/MicronautEclipsestoreProcessorModuleInfo.html" class="type-name-link" title="class in io.micronaut.eclipsestore.info">MicronautEclipsestoreProcessorModuleInfo</a></li>
+<li class="circle">io.micronaut.eclipsestore.info.<a href="io/micronaut/eclipsestore/info/MicronautEclipsestoreRestModuleInfo.html" class="type-name-link" title="class in io.micronaut.eclipsestore.info">MicronautEclipsestoreRestModuleInfo</a></li>
+</ul>
+</li>
 <li class="circle">io.micronaut.eclipsestore.testutils.<a href="io/micronaut/eclipsestore/testutils/AzureBlobLocal.html" class="type-name-link" title="class in io.micronaut.eclipsestore.testutils">AzureBlobLocal</a></li>
 <li class="circle">io.micronaut.eclipsestore.azure.<a href="io/micronaut/eclipsestore/azure/BlobStorageFoundationFactory.html" class="type-name-link" title="class in io.micronaut.eclipsestore.azure">BlobStorageFoundationFactory</a></li>
 <li class="circle">io.micronaut.eclipsestore.cache.<a href="io/micronaut/eclipsestore/cache/CacheConfigurationFactory.html" class="type-name-link" title="class in io.micronaut.eclipsestore.cache">CacheConfigurationFactory</a>&lt;K,<wbr>V&gt;</li>
@@ -92,8 +102,6 @@ loadScripts(document, 'script');</script>
 <li class="circle">io.micronaut.eclipsestore.rest.<a href="io/micronaut/eclipsestore/rest/EclipseStoreRestController.html" class="type-name-link" title="class in io.micronaut.eclipsestore.rest">EclipseStoreRestController</a></li>
 <li class="circle">io.micronaut.eclipsestore.rest.<a href="io/micronaut/eclipsestore/rest/EclipseStoreRestControllerConfigurationProperties.html" class="type-name-link" title="class in io.micronaut.eclipsestore.rest">EclipseStoreRestControllerConfigurationProperties</a> (implements io.micronaut.eclipsestore.rest.<a href="io/micronaut/eclipsestore/rest/EclipseStoreRestControllerConfiguration.html" title="interface in io.micronaut.eclipsestore.rest">EclipseStoreRestControllerConfiguration</a>)</li>
 <li class="circle">io.micronaut.eclipsestore.conf.<a href="io/micronaut/eclipsestore/conf/EmbeddedStorageFoundationFactory.html" class="type-name-link" title="class in io.micronaut.eclipsestore.conf">EmbeddedStorageFoundationFactory</a></li>
-<li class="circle">org.testcontainers.containers.FailureDetectingExternalResource (implements org.junit.rules.TestRule)
-<ul>
 <li class="circle">org.testcontainers.containers.GenericContainer&lt;SELF&gt; (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>, org.testcontainers.containers.Container&lt;SELF&gt;, org.testcontainers.lifecycle.Startable, org.testcontainers.containers.wait.strategy.WaitStrategyTarget)
 <ul>
 <li class="circle">io.micronaut.eclipsestore.testutils.<a href="io/micronaut/eclipsestore/testutils/DynamoDbLocal.html" class="type-name-link" title="class in io.micronaut.eclipsestore.testutils">DynamoDbLocal</a></li>
@@ -104,13 +112,12 @@ loadScripts(document, 'script');</script>
 </li>
 </ul>
 </li>
-</ul>
-</li>
 <li class="circle">io.micronaut.cache.jcache.JCacheSyncCache (implements io.micronaut.cache.SyncCache&lt;C&gt;)
 <ul>
 <li class="circle">io.micronaut.eclipsestore.cache.<a href="io/micronaut/eclipsestore/cache/EclipseStoreSyncCache.html" class="type-name-link" title="class in io.micronaut.eclipsestore.cache">EclipseStoreSyncCache</a>&lt;K,<wbr>V&gt; (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>)</li>
 </ul>
 </li>
+<li class="circle">io.micronaut.eclipsestore.testutils.<a href="io/micronaut/eclipsestore/testutils/Postgresql.html" class="type-name-link" title="class in io.micronaut.eclipsestore.testutils">Postgresql</a></li>
 <li class="circle">io.micronaut.eclipsestore.postgres.<a href="io/micronaut/eclipsestore/postgres/PostgresStorageFoundationFactory.html" class="type-name-link" title="class in io.micronaut.eclipsestore.postgres">PostgresStorageFoundationFactory</a></li>
 <li class="circle">io.micronaut.eclipsestore.rest.<a href="io/micronaut/eclipsestore/rest/RootObject.html" class="type-name-link" title="class in io.micronaut.eclipsestore.rest">RootObject</a></li>
 <li class="circle">io.micronaut.eclipsestore.testutils.<a href="io/micronaut/eclipsestore/testutils/S3Configuration.html" class="type-name-link" title="class in io.micronaut.eclipsestore.testutils">S3Configuration</a></li>
