@@ -1,6 +1,9 @@
 plugins {
     id "io.micronaut.internal.build.eclipsestore-base"
 }
+dependencies {
+    testRuntimeOnly(mnTest.junit.platform.launcher)
+}
 
 tasks.named('test') {
     useJUnitPlatform()
