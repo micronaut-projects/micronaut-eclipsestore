@@ -1,5 +1,5 @@
 [versions]
-micronaut = "5.0.0-M2"
+micronaut = "5.0.0-M6"
 managed-eclipsestore='3.0.1'
 micronaut-aws = "4.11.0"
 micronaut-cache = "6.0.0-M1"
