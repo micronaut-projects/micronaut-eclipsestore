@@ -2,11 +2,13 @@ package io.micronaut.eclipsestore.docs;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.core.util.StringUtils;
+import io.micronaut.eclipsestore.testutils.Postgresql;
 import io.micronaut.runtime.server.EmbeddedServer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.testcontainers.DockerClientFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,14 +21,18 @@ class PostgresPersistentCacheTest {
     @EnabledIf("dockerAvailable")
     @Test
     void cachePersistsOverRestarts() {
-        Map<String, Object> config = Map.of(
+        Map<String, Object> config = new HashMap<>(Map.of(
             "datasources.cache.db-type", "postgresql",
             "micronaut.metrics.enabled", StringUtils.FALSE,
             "eclipsestore.postgres.storage.cache.table-name", "eclipsestore",
             "eclipsestore.cache.counter.key-type", "java.lang.String",
             "eclipsestore.cache.counter.value-type", "java.lang.Long",
             "eclipsestore.cache.counter.storage", "cache"
-        );
+        ));
+        Map<String, String> postgresProperties = Postgresql.getProperties("cache");
+        for (String k : postgresProperties.keySet()) {
+            config.put(k, postgresProperties.get(k));
+        }
 
         // When we create the app, and use a cached method
         try (EmbeddedServer server = ApplicationContext.run(EmbeddedServer.class, config)) {

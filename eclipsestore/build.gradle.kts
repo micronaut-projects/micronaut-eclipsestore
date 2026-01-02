@@ -1,8 +1,5 @@
-import io.micronaut.testresources.buildtools.KnownModules.JDBC_POSTGRESQL
-
 plugins {
     id("io.micronaut.internal.build.eclipsestore-module")
-    id("io.micronaut.test-resources") version "4.6.1"
 }
 
 dependencies {
@@ -41,7 +38,7 @@ dependencies {
     testImplementation(libs.managed.eclipsestore.aws.s3)
     testImplementation(libs.awssdk.s3)
     testImplementation(mnAws.micronaut.aws.sdk.v2)
-    testImplementation(platform(mnTestResources.boms.testcontainers))
+    testImplementation(platform(mnTest.boms.testcontainers))
     testImplementation(libs.testcontainers.minio)
 
     // Postgres connector tests
@@ -58,12 +55,4 @@ dependencies {
     testImplementation(libs.managed.eclipsestore.azure.storage)
 
     testRuntimeOnly(mnLogging.logback.classic)
-}
-
-micronaut {
-    importMicronautPlatform.set(false)
-    testResources {
-        enabled.set(true)
-        additionalModules.add(JDBC_POSTGRESQL)
-    }
 }

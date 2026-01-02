@@ -3,9 +3,11 @@ package io.micronaut.eclipsestore.postgres
 import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Property
 import io.micronaut.core.util.StringUtils
+import io.micronaut.eclipsestore.testutils.Postgresql
 import io.micronaut.inject.qualifiers.Qualifiers
 import io.micronaut.eclipsestore.BaseStorageSpec
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
+import io.micronaut.test.support.TestPropertyProvider
 import jakarta.inject.Inject
 import org.eclipse.store.storage.embedded.types.EmbeddedStorageFoundation
 import org.eclipse.store.storage.types.StorageManager
@@ -22,7 +24,7 @@ import org.testcontainers.DockerClientFactory
 @Property(name = "datasources.other.db-type", value = "postgresql")
 @Property(name = "micronaut.metrics.enabled", value = StringUtils.FALSE) // Workaround for cyclic bean creation HikariDataSource -> MetricsRegistry -> HikariDataSource
 @Property(name = "spec.type", value = "storage")
-class NamedPostgresStorageSpec extends BaseStorageSpec {
+class NamedPostgresStorageSpec extends BaseStorageSpec implements TestPropertyProvider {
 
     static final String TABLE_NAME = "eclipsestorefoo"
 
@@ -34,6 +36,11 @@ class NamedPostgresStorageSpec extends BaseStorageSpec {
 
     @Inject
     DataSource dataSource
+
+    @Override
+    Map<String, String> getProperties() {
+        Postgresql.getProperties("other")
+    }
 
     void "expected beans are created"() {
         expect:
