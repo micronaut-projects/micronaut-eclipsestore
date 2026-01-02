@@ -25,7 +25,6 @@ open class CustomerRepositoryStoreImpl(private val rootProvider: RootProvider<Da
         updateCustomer(id, customerSave)
     }
 
-    @NonNull
     override fun findById(id: @NotBlank String): Customer? {
         return rootProvider.root().customers[id]
     }
@@ -35,7 +34,6 @@ open class CustomerRepositoryStoreImpl(private val rootProvider: RootProvider<Da
     }
 
     @StoreReturn // <2>
-    @Nullable
     open fun updateCustomer(id: String, customerSave: CustomerSave): Customer? {
         val c: Customer? = rootProvider.root().customers[id]
         return if (c != null) {

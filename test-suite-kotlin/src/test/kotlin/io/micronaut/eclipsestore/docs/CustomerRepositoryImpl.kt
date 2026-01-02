@@ -36,7 +36,6 @@ class CustomerRepositoryImpl(private val storageManager: StorageManager) // <1>
         }
     }
 
-    @NonNull
     override fun findById(id: @NotBlank String): Customer? {
         return data.customers[id]
     }
