@@ -3,7 +3,7 @@ package io.micronaut.eclipsestore.docs;
 import com.azure.storage.blob.BlobServiceClient;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.eclipsestore.testutils.AzureBlobLocal;
-import jakarta.inject.Inject;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.condition.EnabledIf;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,11 +17,13 @@ import java.util.Map;
 class BlobCustomerControllerTest extends BaseCustomerControllerTest {
     private static final String CONTAINER_NAME = "devstoreaccount1";
 
-    static AzureBlobLocal azureBlobLocal = new AzureBlobLocal();
+    private static final AzureBlobLocal AZURE_BLOB_LOCAL = new AzureBlobLocal();
+
+    private static Map<String, Object> azureBlobProperties;
 
     @Override
     protected Map<String, Object> extraProperties() {
-        Map<String, Object> properties = new HashMap<>(AzureBlobLocal.getProperties());
+        Map<String, Object> properties = new HashMap<>(azureBlobProperties());
         properties.putAll(Map.of(
             "azure.test", StringUtils.TRUE,
             "eclipsestore.blob.storage.main.container-name", CONTAINER_NAME,
@@ -31,13 +33,22 @@ class BlobCustomerControllerTest extends BaseCustomerControllerTest {
         return properties;
     }
 
-    @Inject
-    BlobServiceClient blobServiceClient;
-
     @BeforeEach
     public void initBlobClient() {
-        blobServiceClient = new AzureBlobLocalClient().buildClient();
-        blobServiceClient.createBlobContainerIfNotExists("devstoreaccount1");
+        BlobServiceClient blobServiceClient = AzureBlobLocalClient.createClient(azureBlobProperties());
+        blobServiceClient.createBlobContainerIfNotExists(CONTAINER_NAME);
+    }
+
+    @AfterAll
+    static void closeBlobLocal() {
+        AZURE_BLOB_LOCAL.close();
+    }
+
+    private static synchronized Map<String, Object> azureBlobProperties() {
+        if (azureBlobProperties == null) {
+            azureBlobProperties = AzureBlobLocal.getProperties();
+        }
+        return azureBlobProperties;
     }
 
     @EnabledIf("dockerAvailable")
