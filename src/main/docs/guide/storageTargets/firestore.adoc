@@ -1,0 +1,38 @@
+Configuration of an https://docs.eclipsestore.io/manual/storage/storage-targets/blob-stores/google-cloud-firestore.html requires a bean of type `Firestore` and configuration.
+
+To get started, add the following dependencies:
+
+dependency:google-cloud-firestore[groupId=com.google.cloud,scope=runtime]
+
+dependency:afs-googlecloud-firestore[groupId=org.eclipse.store,scope=runtime]
+
+The configuration can then be defined as follows:
+
+[configuration]
+----
+eclipsestore:
+    firestore:
+        storage:
+            default:                               # <1>
+                logical-directory: eclipsestore          # <2>
+                root-class: com.example.model.Root # <3>
+----
+<1> The name for the created Storage Manager
+<2> The name that is used internally by eclipsestore to differentiate between multiple eclipse-store instances in the same Firebase db
+<3> The root class of the object graph to store
+
+The storage manager will first attempt to look up a Firestore (Client) with the same name as the Storage Manager, and if this is not found, it will attempt to look up an un-named Firestore bean.
+
+If you require to use an Firestore with a different name, this can be configured via the `firestore-client-name` property as below.
+
+[configuration]
+----
+eclipsestore:
+    firestore:
+        storage:
+            default:
+                firestore-client-name: my-firestore-client       # <1>
+                logical-directory: eclipsestore
+                root-class: com.example.model.Root
+----
+<1> The name of the Firestore (Client) bean to use
