@@ -741,7 +741,7 @@ class CustomerRepositoryImpl(private val storageManager: StorageManager) // <b c
 
     private val data: Data
         get() {
-            val root = storageManager.root()
+            val root = storageManager.root&lt;Any&gt;()
             return if (root is Data) root else throw RuntimeException("Root is not Data")
         }
 }</code></pre>
