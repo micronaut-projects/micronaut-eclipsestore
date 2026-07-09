@@ -49,7 +49,7 @@ class CustomerRepositoryImpl(private val storageManager: StorageManager) // <1>
 
     private val data: Data
         get() {
-            val root = storageManager.root()
+            val root = storageManager.root<Any>()
             return if (root is Data) root else throw RuntimeException("Root is not Data")
         }
 }
