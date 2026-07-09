@@ -4,43 +4,66 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Duration;
+import java.util.Map;
 
 public class FirestoreLocal {
-    GenericContainer firebaseLocal;
+    private static final int FIRESTORE_PORT = 8080;
+    private static volatile String emulatorHost;
+
+    private final GenericContainer<?> firebaseLocal;
 
     public FirestoreLocal() {
-        List<String> portBindings = new ArrayList<>();
-        portBindings.add("8080:8080");
-        firebaseLocal = new GenericContainer(DockerImageName.parse("seriousben/cloud-firestore"));
-        firebaseLocal.addEnv("PROJECT_ID", "dummyid");
-        firebaseLocal.addEnv("FIRESTORE_EMULATOR_HOST", "localhost:8080");
-        firebaseLocal.setPortBindings(portBindings);
-        firebaseLocal.start();
+        firebaseLocal = new GenericContainer<>(DockerImageName.parse("seriousben/cloud-firestore"))
+            .withEnv("PROJECT_ID", "dummyid")
+            .withExposedPorts(FIRESTORE_PORT)
+            .waitingFor(Wait.forListeningPort().withStartupTimeout(Duration.ofSeconds(60)));
+        start();
     }
 
     public void close() {
         firebaseLocal.close();
     }
 
-    public static Firestore firestoreClient() throws InterruptedException {
-        // The used Firestore docker image needs quite a boot-time, so this was the easiest fix.
-        Thread.sleep(2000);
+    public Map<String, String> getProperties() {
+        start();
+        return Map.of();
+    }
 
-        // Has to be set, otherwise the client instantiates correctly but fails when requests are tried to sen
-        System.setProperty("FIRESTORE_EMULATOR_HOST", "localhost:8080");
+    public static Firestore firestoreClient() {
+        String host = emulatorHost;
+        if (host == null) {
+            throw new IllegalStateException("Firestore emulator has not been started");
+        }
+        // Has to be set, otherwise the client instantiates correctly but fails when requests are tried to send.
+        System.setProperty("FIRESTORE_EMULATOR_HOST", host);
 
         GoogleCredentials credentials = GoogleCredentials.newBuilder()
             .build();
         FirestoreOptions options = FirestoreOptions.getDefaultInstance().toBuilder()
             .setCredentials(credentials)
-            .setHost("localhost:8080")
+            .setEmulatorHost(host)
             .setProjectId("dummyid")
             .build();
 
         return options.getService();
+    }
+
+    private void start() {
+        if (!firebaseLocal.isRunning()) {
+            firebaseLocal.start();
+        }
+        emulatorHost = hostAddress();
+    }
+
+    private String hostAddress() {
+        String host = firebaseLocal.getHost();
+        if ("localhost".equals(host)) {
+            host = "127.0.0.1";
+        }
+        return host + ":" + firebaseLocal.getMappedPort(FIRESTORE_PORT);
     }
 }
