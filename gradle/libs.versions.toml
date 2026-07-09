@@ -1,7 +1,7 @@
 
 [versions]
 micronaut = "5.1.4"
-managed-eclipsestore="4.0.1"
+managed-eclipsestore="4.1.0"
 firestore = '3.25.0'
 micronaut-aws = "5.0.1"
 micronaut-cache = "6.1.0"
