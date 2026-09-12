@@ -2,7 +2,7 @@
 [versions]
 micronaut = "5.2.1"
 managed-eclipsestore="4.1.0"
-firestore = '3.25.0'
+firestore = '3.47.0'
 micronaut-aws = "5.1.1"
 micronaut-cache = "6.1.1"
 micronaut-azure = "6.1.0"
