@@ -1,9 +1,8 @@
 import uuid
 
-import java
 from micronaut.context import ApplicationContext
 from micronaut.http import HttpRequest, HttpStatus
-from micronaut.http.client import BlockingHttpClient
+from micronaut.http.client import BlockingHttpClient, HttpClient
 from micronaut.http.client.exceptions import HttpClientResponseException
 from micronaut.runtime.server import EmbeddedServer
 from micronaut.test.extensions.junit5.annotation import MicronautTest
@@ -12,21 +11,16 @@ from org.junit.jupiter.api import Disabled, Test
 from .Customer import Customer
 from .CustomerSave import CustomerSave
 
-# TODO(python): the imported shim classes cannot be used as runtime type arguments of ApplicationContext.run /
-# createBean / exchange ("TypeError: invalid instantiation of foreign object"), only java.type(...) aliases can
-EmbeddedServerType = java.type("io.micronaut.runtime.server.EmbeddedServer")
-HttpClientType = java.type("io.micronaut.http.client.HttpClient")
-CustomerType = java.type("micronaut.eclipsestore.docs.Customer")
-
 
 @MicronautTest
 class CustomerControllerTest:
 
-    # TODO(python): EclipseStore cannot persist the classes generated for Python classes: storing the root instance fails with
-    # "PersistenceExceptionTypeNotPersistable: Type not persistable: class com.oracle.graal.python.builtins.objects.cext.capi.
-    # transitions.CApiTransitions$PythonObjectReference" (the generated class holds the GraalPy object reference) and a
-    # @dataclass root has no no-arg constructor for the initial InstantiationUtils.instantiate(rootClass) call
-    @Disabled("TODO(python): EclipseStore cannot persist the classes generated for Python classes (see DISABLED_TESTS.md)")
+    # TODO(python): EclipseStore instantiates the root through the generated no-arg constructor, which creates an
+    # all-default @dataclass in Python (so that the Python defaults apply): the root is Python-owned, and Python code
+    # receiving it as a Java object (StorageManager.root(), RootProvider.root()) gets a fresh converted HashMap copy
+    # of `customers` on every access, so the entries added from Python are neither stored nor found (404 on the first
+    # GET). Objects created through the field-assigning constructors are Java-owned and persist as documented.
+    @Disabled("TODO(python): a root instantiated through the generated no-arg constructor is Python-owned, so its collections are converted copies (see DISABLED_TESTS.md)")
     @Test
     def test_crud(self) -> None:
         for customer_repository_implementation in ["store", "embedded-storage-manager"]:
@@ -98,7 +92,7 @@ class CustomerControllerTest:
 
         # Then Sergio remains gone
         try:
-            client.exchange(HttpRequest.GET(sergio_location), CustomerType)
+            client.exchange(HttpRequest.GET(sergio_location), Customer)
         except HttpClientResponseException as e:
             assert e.getStatus() == HttpStatus.NOT_FOUND
         else:
@@ -116,11 +110,11 @@ class CustomerControllerTest:
 
     @staticmethod
     def start_server(properties: dict[str, object]) -> EmbeddedServer:
-        return ApplicationContext.run(EmbeddedServerType, properties)
+        return ApplicationContext.run(EmbeddedServer, properties)
 
     @staticmethod
     def create_client(server: EmbeddedServer) -> BlockingHttpClient:
-        return server.getApplicationContext().createBean(HttpClientType, server.getURL()).toBlocking()
+        return server.getApplicationContext().createBean(HttpClient, server.getURL()).toBlocking()
 
     @staticmethod
     def create(client: BlockingHttpClient, first_name: str) -> str:
@@ -132,18 +126,18 @@ class CustomerControllerTest:
 
     @staticmethod
     def show(client: BlockingHttpClient, location: str) -> Customer:
-        response = client.exchange(HttpRequest.GET(location), CustomerType)
+        response = client.exchange(HttpRequest.GET(location), Customer)
         assert response.status() == HttpStatus.OK
         customer = response.body()
         assert customer is not None
-        return customer.asPolyglotValue()
+        return customer
 
     @staticmethod
     def delete(client: BlockingHttpClient, location: str) -> None:
-        delete_response = client.exchange(HttpRequest.DELETE(location), CustomerType)
+        delete_response = client.exchange(HttpRequest.DELETE(location), Customer)
         assert delete_response.status() == HttpStatus.NO_CONTENT
         try:
-            client.exchange(HttpRequest.GET(location), CustomerType)
+            client.exchange(HttpRequest.GET(location), Customer)
         except HttpClientResponseException as e:
             assert e.getStatus() == HttpStatus.NOT_FOUND
         else:
