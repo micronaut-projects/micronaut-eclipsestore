@@ -2546,12 +2546,63 @@ By default, the details visible above are only shown to authenticated users. See
 <div class="paragraph">
 <p>If you wish to disable the EclipseStore health check while still using the <code>management</code> dependency you can set the property <code>endpoints.health.eclipsestore.enabled</code> to <code>false</code> in your application configuration.</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">endpoints.health.eclipsestore.enabled=false</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">endpoints:
   health:
     eclipsestore:
       enabled: false</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">endpoints = {health = {eclipsestore = {enabled = false}}}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">endpoints {
+  health {
+    eclipsestore {
+      enabled = false
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  endpoints {
+    health {
+      eclipsestore {
+        enabled = false
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "endpoints": {
+    "health": {
+      "eclipsestore": {
+        "enabled": false
+      }
+    }
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 
@@ -2605,12 +2656,57 @@ When developing a EclipseStore application, it is useful to be able to inspect t
 <div class="paragraph">
 <p>You also need to enable it in your configuration, as for security it is disabled by default.</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
 <div class="title">src/main/resources/application.yml</div>
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.rest.enabled=true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
   rest:
     enabled: true</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {rest = {enabled = true}}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  rest {
+    enabled = true
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    rest {
+      enabled = true
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "rest": {
+      "enabled": true
+    }
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
@@ -2644,12 +2740,57 @@ When multiple storage managers are defined, the URL must be suffixed by the mana
 <div class="paragraph">
 <p>This prefix can be configured via the configuration.</p>
 </div>
-<div class="listingblock">
+<div class="openblock">
 <div class="title">src/main/resources/application.yml</div>
+<div class="content">
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">eclipsestore.rest.path=custom-prefix</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">eclipsestore:
   rest:
     path: custom-prefix</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {rest = {path = "custom-prefix"}}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy-config hljs" data-lang="groovy-config">eclipsestore {
+  rest {
+    path = "custom-prefix"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-hocon hljs" data-lang="hocon">{
+  eclipsestore {
+    rest {
+      path = "custom-prefix"
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json-config hljs" data-lang="json-config">{
+  "eclipsestore": {
+    "rest": {
+      "path": "custom-prefix"
+    }
+  }
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="paragraph">
