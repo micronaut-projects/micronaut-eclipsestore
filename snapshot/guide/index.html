@@ -251,6 +251,15 @@
 &lt;/annotationProcessorPaths&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+build = [
+    <span class="hljs-string">"io.micronaut.eclipsestore:micronaut-eclipsestore-processor"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -266,6 +275,15 @@
     &lt;groupId&gt;io.micronaut.eclipsestore&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-eclipsestore&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.eclipsestore:micronaut-eclipsestore"</span>,
+]</code></pre>
 </div>
 </div>
 </p>
@@ -1111,6 +1129,15 @@ Currently supported targets are:</p>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.sql:micronaut-jdbc-hikari"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1129,6 +1156,15 @@ Currently supported targets are:</p>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"org.postgresql:postgresql"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1145,6 +1181,15 @@ Currently supported targets are:</p>
     &lt;artifactId&gt;afs-sql&lt;/artifactId&gt;
     &lt;scope&gt;runtime&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"org.eclipse.store:afs-sql"</span>,
+]</code></pre>
 </div>
 </div>
 </p>
@@ -1174,7 +1219,11 @@ datasources.default.driverClassName=org.postgresql.Driver</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">datasources = {default = {url = "jdbc:postgresql://host:port/database", username = "\u00abuser\u00bb", password = "\u00abpassword\u00bb", driverClassName = "org.postgresql.Driver"}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[datasources.default]
+url = "jdbc:postgresql://host:port/database"
+username = "\u00abuser\u00bb"
+password = "\u00abpassword\u00bb"
+driverClassName = "org.postgresql.Driver"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1242,7 +1291,9 @@ eclipsestore.postgres.storage.default.root-class=com.example.model.Root</code></
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {postgres = {storage = {default = {table-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.postgres.storage.default]
+table-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1337,7 +1388,10 @@ eclipsestore.postgres.storage.backing.datasource-name=default</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {postgres = {storage = {backing = {table-name = "eclipsestore", root-class = "com.example.model.Root", datasource-name = "default"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.postgres.storage.backing]
+table-name = "eclipsestore"
+root-class = "com.example.model.Root"
+datasource-name = "default"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1431,6 +1485,15 @@ eclipsestore.postgres.storage.backing.datasource-name=default</code></pre>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"software.amazon.awssdk:s3"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1449,6 +1512,15 @@ eclipsestore.postgres.storage.backing.datasource-name=default</code></pre>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.aws:micronaut-aws-sdk-v2"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1465,6 +1537,15 @@ eclipsestore.postgres.storage.backing.datasource-name=default</code></pre>
     &lt;artifactId&gt;afs-aws-s3&lt;/artifactId&gt;
     &lt;scope&gt;runtime&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"org.eclipse.store:afs-aws-s3"</span>,
+]</code></pre>
 </div>
 </div>
 </p>
@@ -1492,7 +1573,9 @@ eclipsestore.s3.storage.default.root-class=com.example.model.Root</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {s3 = {storage = {default = {bucket-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.s3.storage.default]
+bucket-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1587,7 +1670,10 @@ eclipsestore.s3.storage.default.root-class=com.example.model.Root</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {s3 = {storage = {default = {s3-client-name = "my-s3-client", bucket-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.s3.storage.default]
+s3-client-name = "my-s3-client"
+bucket-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1681,6 +1767,15 @@ eclipsestore.s3.storage.default.root-class=com.example.model.Root</code></pre>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"software.amazon.awssdk:dynamodb"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1699,6 +1794,15 @@ eclipsestore.s3.storage.default.root-class=com.example.model.Root</code></pre>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.aws:micronaut-aws-sdk-v2"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1715,6 +1819,15 @@ eclipsestore.s3.storage.default.root-class=com.example.model.Root</code></pre>
     &lt;artifactId&gt;afs-aws-dynamodb&lt;/artifactId&gt;
     &lt;scope&gt;runtime&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"org.eclipse.store:afs-aws-dynamodb"</span>,
+]</code></pre>
 </div>
 </div>
 </p>
@@ -1742,7 +1855,9 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {dynamodb = {storage = {default = {table-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.dynamodb.storage.default]
+table-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1849,7 +1964,10 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {dynamodb = {storage = {default = {dynamo-db-client-name = "my-dynamo-client", table-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.dynamodb.storage.default]
+dynamo-db-client-name = "my-dynamo-client"
+table-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -1943,6 +2061,15 @@ eclipsestore.dynamodb.storage.default.root-class=com.example.model.Root</code></
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"com.azure:azure-storage-blob"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -1968,7 +2095,9 @@ eclipsestore.blob.storage.default.root-class=com.example.model.Root</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {blob = {storage = {default = {container-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.blob.storage.default]
+container-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2063,7 +2192,10 @@ eclipsestore.blob.storage.default.root-class=com.example.model.Root</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {blob = {storage = {default = {blob-client-name = "my-s3-client", container-name = "eclipsestore", root-class = "com.example.model.Root"}}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.blob.storage.default]
+blob-client-name = "my-s3-client"
+container-name = "eclipsestore"
+root-class = "com.example.model.Root"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2166,6 +2298,15 @@ eclipsestore.blob.storage.default.root-class=com.example.model.Root</code></pre>
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+runtime = [
+    <span class="hljs-string">"io.micronaut.eclipsestore:micronaut-eclipsestore-cache"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -2191,7 +2332,9 @@ eclipsestore.cache.counter.value-type=java.lang.Long</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {cache = {counter = {key-type = "java.lang.String", value-type = "java.lang.Long"}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.cache.counter]
+key-type = "java.lang.String"
+value-type = "java.lang.Long"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2390,7 +2533,14 @@ eclipsestore.cache.counter.storage=backing</code></pre>
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {storage = {backing = {storage-directory = "${storageDirectory}", channel-count = 4}}, cache = {counter = {key-type = "java.lang.String", value-type = "java.lang.Long", storage = "backing"}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.storage.backing]
+storage-directory = "${storageDirectory}"
+channel-count = 4
+
+[eclipsestore.cache.counter]
+key-type = "java.lang.String"
+value-type = "java.lang.Long"
+storage = "backing"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2563,7 +2713,8 @@ By default, the details visible above are only shown to authenticated users. See
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">endpoints = {health = {eclipsestore = {enabled = false}}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[endpoints.health.eclipsestore]
+enabled = false</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2651,6 +2802,15 @@ When developing a EclipseStore application, it is useful to be able to inspect t
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="pyronaut">[tool.pyronaut.dependencies]
+build = [
+    <span class="hljs-string">"io.micronaut.eclipsestore:micronaut-eclipsestore-rest"</span>,
+]</code></pre>
+</div>
+</div>
 </p>
 </div>
 <div class="paragraph">
@@ -2673,7 +2833,8 @@ When developing a EclipseStore application, it is useful to be able to inspect t
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {rest = {enabled = true}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.rest]
+enabled = true</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -2757,7 +2918,8 @@ When multiple storage managers are defined, the URL must be suffixed by the mana
 </div>
 <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">eclipsestore = {rest = {path = "custom-prefix"}}</code></pre>
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[eclipsestore.rest]
+path = "custom-prefix"</code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
